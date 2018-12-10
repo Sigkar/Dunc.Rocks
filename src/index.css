@@ -1,15 +1,49 @@
 /* https://coolors.co/f2f4ed-30323d-e87f47-ff3223-fe5f55 */
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700');
 
+/*
+  Color palette:
+  Use Atom 'Markdown Preview' to get the colors as a preview
+  White-
+  #f2f4ed
+  Black-
+  #30323d
+  Orange-
+  #e87f47
+  Red-
+  #ff3223
+  Red-Orange-
+  #fe5f55
+
+*/
 
 
+
+.White{
+  color:#f2f4ed;
+}
+.WhiteB{
+  background:#f2f4ed;
+}
+.BlackB{
+  background:#30323d;
+}
+.RedB{
+  background:#ff3223;
+}
+.OrangeB{
+  background:#e87f47;
+}
+.RedOrangeB{
+  background:#fe5f55;
+}
 body {
   margin: 0;
   padding: 0;
   font-family:'Josefin Sans',-apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #30323D;
+  background: #f2f4ed;
   overflow-x:hidden;
 }
 
@@ -18,18 +52,62 @@ code {
     monospace;
 }
 /* Generalized */
+.Main-Page-Container{
+  width:100vw;
+  height:auto;
+  min-height:100vh;
+  position:absolute;
+  top:0px;
+  left:0px;
+}
+/* Block */
 .clickable i{
   position:fixed;
   top:10px;
   right:10px;
   cursor:pointer;
   transition:color 0.2s, transform 0.2s;
-  color:#ffffff !important;
+  color:#ff3223 !important;
   transform: scale(0.9);
 }
 .clickable:hover i{
-  color:#f2f4ed !important;
+  color:#e87f47 !important;
   transform: scale(1.00);
+}
+.clickable:active i{
+  transform:scale(1.05);
+}
+
+/* Modifier */
+.clickable-menu-modifier{
+  background-color:#30323d;
+  height:50px;
+  width:50px;
+  position:fixed;
+  top:0px;
+  right:0px;
+  border-bottom-left-radius:3px;
+  transition:background-color 0.2s;
+}
+.clickable-menu-modifier:hover{
+  background-color:#313440;
+}
+.clickable-menu-modifier i{
+  transform:scale(1.00);
+  height:50px;
+  width:50px;
+
+  position:relative;
+  top:5px;
+  left:1px;
+
+  color:#f2f4ed !important;
+}
+.clickable-menu-modifier:hover i{
+  color:#f0f0f0 !important;
+}
+.clickable-menu-modifier:active{
+  transform:scale(1.00);
 }
 
 
@@ -41,11 +119,20 @@ code {
   position:absolute;
 }
 
+/* Overlay for UL Block */
+.Left-Fill{
+  position:fixed;
+  top:0px;
+  width:calc(110vw);
+  height:100vh;
+  opacity:0.2;
+  background:#fe5f55;
+}
 
 /* UL Block */
 .sidebar {
   width: 250px;
-  height: 100vh;
+  height: calc(100vh - 60px);
   background: #ff3223;
   padding: 30px;
   display: flex;
@@ -95,4 +182,47 @@ code {
   padding:0;
   height:auto;
   width:auto;
+}
+
+/* Main Page */
+.Main-Template{
+  width:320px;
+  margin:0 auto;
+  height:350px;
+  position:relative;
+  top:calc(50vh - 175px);
+}
+.Main-Text-Spacer{
+  margin:0;
+  padding:0;
+  letter-spacing: 5px;
+  line-height:50px;
+  vertical-align: middle;
+}
+.Main-Title-Text{
+  font-size:40px;
+}
+/* Background for Main title */
+.stripe{
+  position:relative;
+  left:0px;
+  width:calc(50vw + 330px);
+  height:50px;
+}
+@media screen and (max-width:800px){
+  .Main-Template{
+    margin:0;
+  }
+}
+@media screen and (max-height:400px){
+  .Main-Page-Container{
+    min-height:500px;
+  }
+  .Main-Template{
+    width:320px;
+    margin:0 auto;
+    height:270px;
+    position:relative;
+    top:calc(50% - 135px);
+  }
 }

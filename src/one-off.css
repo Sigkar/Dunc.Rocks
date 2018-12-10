@@ -1,0 +1,13 @@
+.Main-Image-Auth{
+  position:absolute;
+  right:0px;
+  top:30vh;
+  height:70vh;
+  background-size:contain;
+  background-position:Center right;
+}
+.Geeks-Rule-The-World{
+  font-size:60px;
+  line-height:70px;
+  font-weight:700;
+}

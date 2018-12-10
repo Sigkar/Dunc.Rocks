@@ -17,27 +17,42 @@ const ContactPage = () => <Contact />;
 const MyWorkPage = () => <Work />;
 
 
+const LeftOverlay = posed.div({
+  open:{
+    delay:300,
+    x: '-20%',
+    transition:{
+      duration:500,
+    },
+  },
+  closed:{
+    x:'-120%',
+    delay:300,
+    transition:{
+      duration:500,
+    },
+  }
+});
 
 const Sidebar = posed.ul({
   open: {
+    delay: 200,
     x: '0%',
     delayChildren: 200,
     staggerChildren: 50,
+    transition:{
+      duration: 400,
+    }
   },
-  draggable:'x',
-  drag: {
-    scale: 1
-  },
-  dragEnd: {
+  closed: {
     x: '200%',
-    y: 0,
-    transition: {
-      type: 'spring'
-     }
+    delay: 300,
+    transition:{
+      duration: 400,
+    }
   },
-  closed: { x: '100%', delay: 300 }
+   initialPose:'closed',
 });
-
 const NavOption = posed.li({
   open: {
     y: 0,
@@ -55,8 +70,9 @@ const NavOption = posed.li({
   press: { scale: 0.9 },
   closed: { y: 40, opacity: 0 },
 });
+
 const MyLink = ({ title, to, onClick, routes }) => (
-  <div>
+  <div className="Link-Container RedB">
     <Link to={to}>
       <NavOption className="item" onClick={onClick}>
          <span className="Nav-Font">{title}</span>
@@ -73,11 +89,10 @@ const FuncIcon = ({ size, funcOption, icon, classVal }) => (
 )
 
 export class App extends Component {
-  state = { isOpen: false, finishedLoad: false };
-    completedLoad = () => this.setState({ finishedLoad: true });
+  state = { isOpen: false};
 
     componentDidMount() {
-      setTimeout(this.completedLoad, 2000);
+      
 
     }
 
@@ -89,19 +104,22 @@ export class App extends Component {
         <div>
           <Router>
             <div id="Nav-Contain-ID">
-
-              <Route path="/" exact component={IndexPage}  />
-              <Route path="/about/" component={AboutPage} />
-              <Route path="/contact/" component={ContactPage} />
-              <Route path="/mywork/" component={MyWorkPage} />
-
+              <div className="Main-Page-Container">
+                <Route path="/" exact component={IndexPage}  />
+                <Route path="/about/" component={AboutPage} />
+                <Route path="/contact/" component={ContactPage} />
+                <Route path="/mywork/" component={MyWorkPage} />
+              </div>
               <FuncIcon size='large' funcOption={this.toggle} icon="menu" classVal="clickable"/>
 
+              <LeftOverlay className="Left-Fill" pose={isOpen ? 'open' : 'closed'}/>
               <Sidebar className="sidebar" pose={isOpen ? 'open' : 'closed'}>
+                <FuncIcon size='large' funcOption={this.toggle} icon="close" classVal="clickable clickable-menu-modifier"/>
                 <MyLink title="HOME" to="/" onClick={this.toggle}/>
                 <MyLink title="ABOUT" to="/about" onClick={this.toggle}/>
                 <MyLink title="CONTACT" to="/contact" onClick={this.toggle}/>
                 <MyLink title="MY WORK" to="/mywork" onClick={this.toggle}/>
+                <MyLink title="FAVORITES" to="/mywork" onClick={this.toggle}/>
               </Sidebar>
 
             </div>
