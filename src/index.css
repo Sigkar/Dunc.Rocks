@@ -17,11 +17,75 @@
 
 */
 
+.Title{
+  font-size:36px;
+  letter-spacing:5px;
+  width:80%;
+  position:relative;
+  left:5%;
+}
+.Title-Letter-Spacing{
+  width:80%;
+  position:relative;
+  left:5%;
+  letter-spacing:5px;
+}
 
+/* Element */
+.Title-Stripe{
+  height:30px;
+}
+.Title-Stripe-Right{
+  float:right;
+}
+.Forty-Width{
+  width:40vw;
+}
+.Fifty-Width{
+  width:50vw;
+}
+.Sixty-Width{
+  width:60vw;
+}
+.Seventy-Width{
+  width:70vw;
+}
+
+.Justify{
+  text-align:justify;
+}
+.Center-Text{
+  text-align:center;
+}
+.Large-Font{
+  font-size:28px;
+}
+.Medium-Font{
+  font-size:22px;
+}
+.Small-Font{
+  font-size:14px;
+}
+.Very-Small-Font{
+  font-size:10px;
+}
 
 .White{
   color:#f2f4ed;
 }
+.Black{
+  color:#30323d;
+}
+.Red{
+  color:#ff3223;
+}
+.Orange{
+  color:#e87f47;
+}
+.RedOrange{
+  color:#fe5f55;
+}
+
 .WhiteB{
   background:#f2f4ed;
 }
@@ -225,4 +289,24 @@ code {
     position:relative;
     top:calc(50% - 135px);
   }
+}
+
+
+
+/* About Page */
+.Split-Stripe{
+}
+.Flex-Items{
+  display:flex;
+  justify-content:space-around;
+}
+.Flex-Items .Lang{
+  width:calc((100vw/3) - 20px);
+  margin:10px;
+}
+.Flex-Items .Space{
+  width:25vw;
+}
+.Flex-Items .Option{
+  width:50vw;
 }

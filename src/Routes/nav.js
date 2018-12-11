@@ -92,7 +92,7 @@ export class App extends Component {
   state = { isOpen: false};
 
     componentDidMount() {
-      
+
 
     }
 
@@ -106,6 +106,7 @@ export class App extends Component {
             <div id="Nav-Contain-ID">
               <div className="Main-Page-Container">
                 <Route path="/" exact component={IndexPage}  />
+                <Route path="/home" component={IndexPage}  />
                 <Route path="/about/" component={AboutPage} />
                 <Route path="/contact/" component={ContactPage} />
                 <Route path="/mywork/" component={MyWorkPage} />

@@ -16,7 +16,7 @@ const StaggerChildren = posed.div({
     staggerChildren: 250,
     delayChildren: 100
   }
-})
+});
 const Title = posed.div({
   closed:{
     width: '0px',
@@ -42,17 +42,17 @@ export class Home extends Component{
       <StaggerChildren className="Main-Template" pose={loadHome ? 'open' : 'closed'}>
         <div className="Main-Text-Spacer Main-Title-Text">
           <Title className="stripe OrangeB" pose={loadHome ? 'open' : 'closed'}>
-            &nbsp;DESIGNER.<br/>
+            &nbsp;{"DESIGNER/"}<br/>
           </Title>
           <Title className="stripe RedB" pose={loadHome ? 'open' : 'closed'}>
-            &nbsp;DEVELOPER.<br/>
+            &nbsp;{"DEVELOPER;"}<br/>
           </Title>
           <Title className="stripe RedOrangeB" pose={loadHome ? 'open' : 'closed'}>
             &nbsp;GAMER.<br/>
           </Title>
           <Title className="stripe BlackB" pose={loadHome ? 'open' : 'closed'}>
             <span className="White">
-              &nbsp;BEER LOVER.
+              &nbsp;WRITER.
             </span><br/>
           </Title>
           <div className="Geeks-Rule-The-World" pose={loadHome ? 'open' : 'closed'}>
