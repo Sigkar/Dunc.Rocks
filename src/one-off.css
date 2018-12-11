@@ -11,3 +11,15 @@
   line-height:70px;
   font-weight:700;
 }
+.HomeTitle{
+  margin:0;
+  padding:0;
+  -webkit-animation-delay: 2s; /* Chrome, Safari, Opera */
+  animation-delay: 2s;
+}
+.frame{
+  width:80%;
+  height:400px;
+  position:relative;
+  left:10%;
+}

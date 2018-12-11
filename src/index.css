@@ -17,6 +17,12 @@
 
 */
 
+.Box-Shadow{
+  -webkit-box-shadow: 3px 2px 5px 0px rgba(133,133,133,0.5);
+  -moz-box-shadow: 3px 2px 5px 0px rgba(133,133,133,0.5);
+  box-shadow: 3px 2px 5px 0px rgba(133,133,133,0.5);
+}
+
 .Title{
   font-size:36px;
   letter-spacing:5px;
@@ -28,6 +34,9 @@
   width:80%;
   position:relative;
   left:5%;
+  letter-spacing:5px;
+}
+.Any-Letter-Spacing{
   letter-spacing:5px;
 }
 
@@ -59,15 +68,19 @@
 }
 .Large-Font{
   font-size:28px;
+  line-height:32px;
 }
 .Medium-Font{
   font-size:22px;
+  line-height:24px;
 }
 .Small-Font{
   font-size:14px;
+  line-height:16px;
 }
 .Very-Small-Font{
   font-size:10px;
+  line-height:12px;
 }
 
 .White{
@@ -203,7 +216,7 @@ code {
   flex-direction: column;
   list-style: none;
   margin: 0;
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   right:0;
@@ -291,15 +304,14 @@ code {
   }
 }
 
-
-
-/* About Page */
-.Split-Stripe{
-}
 .Flex-Items{
   display:flex;
   justify-content:space-around;
 }
+
+
+/* About Page */
+
 .Flex-Items .Lang{
   width:calc((100vw/3) - 20px);
   margin:10px;
@@ -309,4 +321,19 @@ code {
 }
 .Flex-Items .Option{
   width:50vw;
+}
+.Duncan{
+  margin:3vh 0;
+  width:calc(40vw - 100px);
+  height:calc(40vw - 100px);
+}
+.Grid-4{
+  max-width:25vw;
+  height:auto;
+  margin-bottom:2vh;
+}
+@media screen and (max-width:800px){
+  .Flex-Items{
+    display:block;
+  }
 }

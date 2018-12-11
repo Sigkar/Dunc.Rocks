@@ -18,15 +18,28 @@ const StaggerChildren = posed.div({
   }
 });
 const Title = posed.div({
-  closed:{
-    width: '0px',
-    opacity: 0
-  },
   open:{
     width: '100vw',
-    opacity: 1
+    transition:{
+      duration:600,
+    },
+    beforeChildren:true,
+    delayChildren: 200,
+    staggerChildren: 50
+  },
+  closed:{
+    width: '0px',
   }
 });
+const InvisOnLoad = posed.div({
+  closed:{
+    opacity:0,
+  },
+  open:{
+    opacity:1,
+  },
+});
+
 
 export class Home extends Component{
   state = { loadHome:false };
@@ -42,18 +55,18 @@ export class Home extends Component{
       <StaggerChildren className="Main-Template" pose={loadHome ? 'open' : 'closed'}>
         <div className="Main-Text-Spacer Main-Title-Text">
           <Title className="stripe OrangeB" pose={loadHome ? 'open' : 'closed'}>
-            &nbsp;{"DESIGNER/"}<br/>
+            <InvisOnLoad className="HomeTitle">&nbsp;DESIGNER.</InvisOnLoad>
           </Title>
           <Title className="stripe RedB" pose={loadHome ? 'open' : 'closed'}>
-            &nbsp;{"DEVELOPER;"}<br/>
+            <InvisOnLoad className="HomeTitle">&nbsp;DEVELOPER.</InvisOnLoad>
           </Title>
           <Title className="stripe RedOrangeB" pose={loadHome ? 'open' : 'closed'}>
-            &nbsp;GAMER.<br/>
+            <InvisOnLoad className="HomeTitle">&nbsp;GAMER.</InvisOnLoad>
           </Title>
           <Title className="stripe BlackB" pose={loadHome ? 'open' : 'closed'}>
-            <span className="White">
+            <InvisOnLoad className="White HomeTitle">
               &nbsp;WRITER.
-            </span><br/>
+            </InvisOnLoad>
           </Title>
           <div className="Geeks-Rule-The-World" pose={loadHome ? 'open' : 'closed'}>
             DUNCAN<br/>PIERCE.
