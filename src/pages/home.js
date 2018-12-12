@@ -1,22 +1,8 @@
 import React, { Component } from 'react';
 import posed from 'react-pose';
 import '../one-off.css';
+import { StaggerRemaining, StaggerChildren, LoadFade, ZeroToFullWidth} from '../poses/poses.js';
 
-const options = [
-  "GAMER.",
-  "DEVELOPER.",
-  "DESIGNER.",
-  "BEER LOVER.",
-  "GREATER.",
-]
-
-
-const StaggerChildren = posed.div({
-  open:{
-    staggerChildren: 250,
-    delayChildren: 100
-  }
-});
 const Title = posed.div({
   open:{
     width: '100vw',

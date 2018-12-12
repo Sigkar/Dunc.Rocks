@@ -89,6 +89,11 @@
 .Black{
   color:#30323d;
 }
+.Black-Icon i{
+  color:#30323d !important;
+  display:flex !important;
+  justify-content:center !important;
+}
 .Red{
   color:#ff3223;
 }
@@ -331,6 +336,12 @@ code {
   max-width:25vw;
   height:auto;
   margin-bottom:2vh;
+}
+.One-Third-Guttered{
+  width:33vw;
+}
+.Paragraph-Width{
+  width:80vw;
 }
 @media screen and (max-width:800px){
   .Flex-Items{

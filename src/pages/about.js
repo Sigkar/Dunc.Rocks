@@ -4,30 +4,11 @@ import DuncanPic from '../images/DuncanCompress.jpg';
 
 import posed from 'react-pose';
 
-//React Pose
-const StaggerRemaining = posed.div({
-  open:{
-    staggerChildren: 50,
-    delayChildren: 750
-  }
-});
-const StaggerChildren = posed.div({
-  open:{
-    staggerChildren: 250,
-    delayChildren: 100
-  }
-});
-const LoadFade = posed.div({
-  open: {
-    opacity:1,
-    transition:{
-      duration:400,
-    }
-  },
-  closed:{
-    opacity:0,
-  }
-});
+
+import MaterialIcon, {colorPalette} from 'material-icons-react';
+
+
+import { StaggerRemaining, StaggerChildren, LoadFade, ZeroToFullWidth} from '../poses/poses.js';
 // JSX
 const Item = ({content, pluginOne, example, linkTitle}) => (
   <div class="Lang">
@@ -39,49 +20,45 @@ const Item = ({content, pluginOne, example, linkTitle}) => (
   </div>
 );
 
-const GridItems = ({con1, col1, con2, col2, con3, col3, con4, col4}) => (
-  <div className="Flex-Items">
-    <LoadFade>
-      <div className={"Grid-4 Center-Text Medium-Font " + col1}>
-        {con1}
+const Services = ({icon, title, service}) => (
+  <LoadFade>
+    <div className="Black-Icon">
+      <div className="One-Third-Guttered">
+        <MaterialIcon icon={icon} size="80" />
+        <br/>
+        <p className="Center-Text Medium-Font">
+          {title}
+          <br/><br/>
+          {service}
+        </p>
+        <br/>
       </div>
-    </LoadFade>
-    <LoadFade>
-      <div className={"Grid-4 Center-Text Medium-Font " + col2}>
-        {con2}
-      </div>
-    </LoadFade>
-    <LoadFade>
-      <div className={"Grid-4 Center-Text Medium-Font " + col3}>
-        {con3}
-      </div>
-    </LoadFade>
-    <LoadFade>
-      <div className={"Grid-4 Center-Text Medium-Font " + con4}>
-        {con4}
-      </div>
-    </LoadFade>
-  </div>
-)
+    </div>
+  </LoadFade>
+);
 
 //Just filling in content
 const AboutParagraph = () => (
   <section>
-    <p className="Medium-Font Justify">
+    <p className="Medium-Font Justify Paragraph-Width">
       My name is Duncan Pierce. I began developing at the young age
       of 15 years old, writing C++.
-      At the age of 16, I found out what I wanted to do in life,
-      after writing my first responsive website, using the Responsive Grid System.
+      At the age of 16, I found out what I wanted to do in life.
+      This happened after writing my first responsive website,
+      using the (now defunct for flex) Responsive Grid System.
       <br/><br/>
       I graduated from Bellarmine University in Louisville, Kentucky,
       with a bachelors degree in business administration.
       <br/><br/>
+      Why a business degree? Because I believe that understanding the product
+      comes first. Business is a knowledge and skill - Code is very heavily
+      based upon talent, in some philosophies anyway.
     </p>
   </section>
 );
 const MissionStatement = () => (
   <section>
-    <p className="Medium-Font Justify">
+    <p className="Medium-Font Justify Paragraph-Width">
       As one who loves technology, I strive to create the best web and mobile applications,
       websites, and back-end systems as I can.
       <br/><br/>
@@ -107,13 +84,10 @@ const Header = () => (
       <span class="Red">R</span>
       <span class="RedOrange">N</span>
       ?</h2>
-      <h2 className="Title">NOW YOU HAVE</h2>
+      <h2 className="Title">NOW YOU HAVE.</h2>
     </LoadFade>
 
-    <LoadFade>
-      <div className="Title-Stripe RedB">
-      </div>
-    </LoadFade>
+      <ZeroToFullWidth className="Title-Stripe RedB"/>
   </section>
 )
 export class About extends Component{
@@ -140,23 +114,6 @@ export class About extends Component{
 
           </StaggerChildren>
           <StaggerRemaining pose={loadHome ? 'open' : 'closed'}>
-            <LoadFade>
-              <h3 className="Large-Font Title-Letter-Spacing">
-                YOUNG START
-              </h3>
-            </LoadFade>
-
-            <LoadFade>
-              <div className="Flex-Items">
-                <div className="Space">
-                </div>
-
-                  <AboutParagraph/>
-
-                <div className="Space">
-                </div>
-              </div>
-            </LoadFade>
 
             <LoadFade>
               <br/>
@@ -176,6 +133,43 @@ export class About extends Component{
                 </div>
               </div>
             </LoadFade>
+
+            <LoadFade>
+              <h3 className="Large-Font Title-Letter-Spacing">
+                YOUNG START
+              </h3>
+            </LoadFade>
+
+            <LoadFade>
+              <div className="Flex-Items">
+                <div className="Space">
+                </div>
+
+                  <AboutParagraph/>
+
+                <div className="Space">
+                </div>
+              </div>
+            </LoadFade>
+
+
+
+            <LoadFade>
+              <p className="Large-Font Title-Letter-Spacing">
+                <strong>SERVICES AVAILABLE</strong>
+              </p>
+            </LoadFade>
+            <div className="Flex-Items">
+              <Services icon="computer" title="WEB DEVELOPMENT"/>
+              <Services icon="device_hub" title="API DEVELOPMENT"/>
+              <Services icon="phone_iphone" title="MOBILE APPLICATIONS"/>
+            </div>
+            <div className="Flex-Items">
+              <Services icon="security" title="WEB SECURITY"/>
+              <Services icon="visibility" title="UI/UX DEVELOPMENT"/>
+              <Services icon="list_alt" title="BUSINESS STRATEGY"/>
+            </div>
+
         </StaggerRemaining>
       </div>
     )
