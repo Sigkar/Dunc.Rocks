@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import posed from 'react-pose';
 import '../one-off.css';
-import { StaggerRemaining, StaggerChildren, LoadFade, ZeroToFullWidth} from '../poses/poses.js';
+import { StaggerChildren  } from '../poses/poses.js';
 
 const Title = posed.div({
   open:{
@@ -25,18 +25,36 @@ const InvisOnLoad = posed.div({
     opacity:1,
   },
 });
-
+const PulseSize = posed.div({
+  small:{
+    scale:0.99,
+    transition:{
+      duration:1000,
+    }
+  },
+  large:{
+    scale:1.01,
+    transition:{
+      duration:1000,
+    }
+  }
+})
 
 export class Home extends Component{
-  state = { loadHome:false };
+  state = { loadHome:false, isSmall:false };
   toggleLoadAnimations = () => (this.setState({ loadHome: true }));
+  togglePulse = () => (
+    setInterval(() => {this.setState({ isSmall: !this.state.isSmall })}, 1000)
+  )
   componentDidMount(){
 
       setTimeout(this.toggleLoadAnimations, 500);
+      setTimeout(this.togglePulse, 1750);
 
   }
   render(){
-    const { loadHome } = this.state;
+    const { loadHome, isSmall } = this.state;
+
     return(
       <StaggerChildren className="Main-Template" pose={loadHome ? 'open' : 'closed'}>
         <div className="Main-Text-Spacer Main-Title-Text">
@@ -49,14 +67,14 @@ export class Home extends Component{
           <Title className="stripe RedOrangeB" pose={loadHome ? 'open' : 'closed'}>
             <InvisOnLoad className="HomeTitle">&nbsp;GAMER.</InvisOnLoad>
           </Title>
-          <Title className="stripe BlackB" pose={loadHome ? 'open' : 'closed'}>
+          <Title className="stripe BlackB"  pose={loadHome ? 'open' : 'closed'}>
             <InvisOnLoad className="White HomeTitle">
               &nbsp;WRITER.
             </InvisOnLoad>
           </Title>
-          <div className="Geeks-Rule-The-World" pose={loadHome ? 'open' : 'closed'}>
+          <PulseSize className="Geeks-Rule-The-World" pose={isSmall ? 'small' : 'large'}>
             DUNCAN<br/>PIERCE.
-          </div>
+          </PulseSize>
         </div>
       </StaggerChildren>
     );

@@ -1,5 +1,3 @@
-import React, { Component } from 'react';
-
 import posed from 'react-pose';
 
 
@@ -26,6 +24,20 @@ export const LoadFade = posed.div({
   },
   closed:{
     opacity:0,
+  }
+});
+export const LoadScale = posed.div({
+  open: {
+    opacity:1,
+    scale:1,
+    transition:{
+      opacity:{duration:400},
+      scale:{duration:400, delay:400},
+    }
+  },
+  closed:{
+    opacity:0,
+    scale:0.85,
   }
 });
 export const ZeroToFullWidth = posed.div({

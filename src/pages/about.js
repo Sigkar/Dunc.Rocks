@@ -8,33 +8,16 @@ import posed from 'react-pose';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
 
 
-import { StaggerRemaining, StaggerChildren, LoadFade, ZeroToFullWidth} from '../poses/poses.js';
+import { StaggerRemaining, StaggerChildren, LoadFade, ZeroToFullWidth, LoadScale} from '../poses/poses.js';
 // JSX
 const Item = ({content, pluginOne, example, linkTitle}) => (
-  <div class="Lang">
-    <p class="Large-Font Center-Text"><strong>{content}</strong></p>
+  <div className="Lang">
+    <p className="Large-Font Center-Text"><strong>{content}</strong></p>
     <br/>
-    <p class="Large-Font Center-Text">{pluginOne}</p>
+    <p className="Large-Font Center-Text">{pluginOne}</p>
     <br/>
-    <p class="Large-Font Center-Text"><a className="RedOrange" target="_blank" rel="noopener noreferrer" href={example}>{linkTitle}</a></p>
+    <p className="Large-Font Center-Text"><a className="RedOrange" target="_blank" rel="noopener noreferrer" href={example}>{linkTitle}</a></p>
   </div>
-);
-
-const Services = ({icon, title, service}) => (
-  <LoadFade>
-    <div className="Black-Icon">
-      <div className="One-Third-Guttered">
-        <MaterialIcon icon={icon} size="80" />
-        <br/>
-        <p className="Center-Text Medium-Font">
-          {title}
-          <br/><br/>
-          {service}
-        </p>
-        <br/>
-      </div>
-    </div>
-  </LoadFade>
 );
 
 //Just filling in content
@@ -76,13 +59,13 @@ const Header = () => (
   <section>
     <LoadFade>
       <h2 className="Title">EVER SEEN A&nbsp;
-      <span class="RedOrange">U</span>
-      <span class="Orange">N</span>
-      <span class="Red">I</span>
-      <span class="RedOrange">C</span>
-      <span class="Orange">O</span>
-      <span class="Red">R</span>
-      <span class="RedOrange">N</span>
+      <span className="RedOrange">U</span>
+      <span className="Orange">N</span>
+      <span className="Red">I</span>
+      <span className="RedOrange">C</span>
+      <span className="Orange">O</span>
+      <span className="Red">R</span>
+      <span className="RedOrange">N</span>
       ?</h2>
       <h2 className="Title">NOW YOU HAVE.</h2>
     </LoadFade>
@@ -106,11 +89,11 @@ export class About extends Component{
         <StaggerChildren pose={loadHome ? 'open' : 'closed'}>
           <Header/>
 
-          <LoadFade>
+          <LoadScale>
               <div className="Flex-Items">
                 <img src={DuncanPic} alt="Selfie of Duncan" className="Duncan Box-Shadow"/>
               </div>
-          </LoadFade>
+          </LoadScale>
 
           </StaggerChildren>
           <StaggerRemaining pose={loadHome ? 'open' : 'closed'}>
@@ -152,30 +135,12 @@ export class About extends Component{
               </div>
             </LoadFade>
 
-
-
-            <LoadFade>
-              <p className="Large-Font Title-Letter-Spacing">
-                <strong>SERVICES AVAILABLE</strong>
-              </p>
-            </LoadFade>
-            <div className="Flex-Items">
-              <Services icon="computer" title="WEB DEVELOPMENT"/>
-              <Services icon="device_hub" title="API DEVELOPMENT"/>
-              <Services icon="phone_iphone" title="MOBILE APPLICATIONS"/>
-            </div>
-            <div className="Flex-Items">
-              <Services icon="security" title="WEB SECURITY"/>
-              <Services icon="visibility" title="UI/UX DEVELOPMENT"/>
-              <Services icon="list_alt" title="BUSINESS STRATEGY"/>
-            </div>
-
         </StaggerRemaining>
       </div>
     )
   }
 }
-// <div class="Flex-Items">
+// <div className="Flex-Items">
 //   <LoadFade>
 //     <Item content="JavaScript" pluginOne="ReactJS" example="/home" linkTitle="This Website"/>
 //   </LoadFade>
