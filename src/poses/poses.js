@@ -50,4 +50,18 @@ export const ZeroToFullWidth = posed.div({
   closed:{
     width:'0px',
   }
+});
+export const PulseSize = posed.div({
+  small:{
+    scale:0.99,
+    transition:{
+      duration:2000,
+    }
+  },
+  large:{
+    scale:1.0,
+    transition:{
+      duration:2000,
+    }
+  }
 })

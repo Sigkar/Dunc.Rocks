@@ -4,11 +4,12 @@ import DuncanPic from '../images/DuncanCompress.jpg';
 
 import posed from 'react-pose';
 
-
 import MaterialIcon, {colorPalette} from 'material-icons-react';
 
-
 import { StaggerRemaining, StaggerChildren, LoadFade, ZeroToFullWidth, LoadScale} from '../poses/poses.js';
+
+import { TitleText } from "../components/titles.js";
+
 // JSX
 const Item = ({content, pluginOne, example, linkTitle}) => (
   <div className="Lang">
@@ -23,12 +24,17 @@ const Item = ({content, pluginOne, example, linkTitle}) => (
 //Just filling in content
 const AboutParagraph = () => (
   <section>
-    <p className="Medium-Font Justify Paragraph-Width">
+    <p className="Medium-Font Paragraph-Width">
       My name is Duncan Pierce. I began developing at the young age
       of 15 years old, writing C++.
       At the age of 16, I found out what I wanted to do in life.
       This happened after writing my first responsive website,
       using the (now defunct for flex) Responsive Grid System.
+      <br/><br/>
+      I took on my first development contract at 18, scrambling to start my own
+      business, On-Track Services. Since then, I've worked for a few companies,
+      built a few products from the ground up, and have become comfortable taking
+      an idea and putting it onto the market.
       <br/><br/>
       I graduated from Bellarmine University in Louisville, Kentucky,
       with a bachelors degree in business administration.
@@ -36,25 +42,62 @@ const AboutParagraph = () => (
       Why a business degree? Because I believe that understanding the product
       comes first. Business is a knowledge and skill - Code is very heavily
       based upon talent, in some philosophies anyway.
+
     </p>
   </section>
 );
 const MissionStatement = () => (
   <section>
-    <p className="Medium-Font Justify Paragraph-Width">
+    <p className="Medium-Font Paragraph-Width">
       As one who loves technology, I strive to create the best web and mobile applications,
       websites, and back-end systems as I can.
       <br/><br/>
       Developing a professional and sleek UI, with a great UX, is one of the largest selling
-      points of any application.
+      points of any application to a user.
       <br/><br/>
       My dream is to create a great digital experience for both the
       client and the developer, and the only way to achieve this goal
       was for me to become fluent in both Front and Back End development.
+
     </p>
   </section>
 );
 
+const OffDuty = () => (
+  <section>
+    <p className="Medium-Font Paragraph-Width">
+      <p className="Any-Letter-Spacing Center-Text Orange">
+        <strong>
+          TECHNOLOGICAL
+        </strong>
+      </p>
+      I am mastery rank 22 on Warframe, I have just a few hours in The Witcher 3 and Fallout 4,
+      and I am a total Old-School Runescape geek. Also, development is not just work -
+      several hours each day, I look at the latest and greatest UI/UX ideas for both the web
+      and mobile applications.
+      <br/><br/>
+      <p className="Any-Letter-Spacing Center-Text Orange">
+        <strong>
+          FITNESS
+        </strong>
+      </p>
+      I love to run, mountain bike, hike, and sing. I have been part of unofficial
+      olympic weightlifting meets, and spent several years in college powerlifting.
+      <br/><br/>
+      <p className="Any-Letter-Spacing Center-Text Orange">
+        <strong>
+          AFFINITY FOR THE STRANGE
+        </strong>
+      </p>
+      Along with all of this, I have an affinity for old, vintage, and out of place
+      things. I make vintage (synthetic) journals, as well as give vintage styles
+      a modern touch.
+      <br/><br/>
+      Soon, I plan on releasing a novel of mine, <em>Frost-striders</em> to the
+      general public, a tale of Antarctic colonization in the mid 23rd century.
+    </p>
+  </section>
+)
 const Header = () => (
   <section>
     <LoadFade>
@@ -89,52 +132,39 @@ export class About extends Component{
         <StaggerChildren pose={loadHome ? 'open' : 'closed'}>
           <Header/>
 
-          <LoadScale>
-              <div className="Flex-Items">
-                <img src={DuncanPic} alt="Selfie of Duncan" className="Duncan Box-Shadow"/>
-              </div>
-          </LoadScale>
 
+          <section id="AboutBlockOne">
+            <TitleText title="DREAM STATEMENT" fcol="RedOrange"/>
+            <LoadFade>
+              <div className="Flex-Items">
+                  <MissionStatement/>
+              </div>
+            </LoadFade>
+            </section>
           </StaggerChildren>
           <StaggerRemaining pose={loadHome ? 'open' : 'closed'}>
-
-            <LoadFade>
-              <br/>
-              <h3 className="Large-Font Title-Letter-Spacing">
-                DREAM STATEMENT
-              </h3>
-            </LoadFade>
-
-            <LoadFade>
-              <div className="Flex-Items">
-                <div className="Space">
+            <LoadScale>
+                <div className="Flex-Items">
+                  <img src={DuncanPic} alt="Selfie of Duncan" className="Duncan Box-Shadow"/>
                 </div>
-
-                  <MissionStatement/>
-
-                <div className="Space">
+            </LoadScale>
+            <section id="AboutBlockTwo">
+              <TitleText title="YOUNG START" fcol="RedOrange"/>
+              <LoadFade>
+                <div className="Flex-Items">
+                    <AboutParagraph/>
                 </div>
-              </div>
-            </LoadFade>
+              </LoadFade>
+            </section>
 
-            <LoadFade>
-              <h3 className="Large-Font Title-Letter-Spacing">
-                YOUNG START
-              </h3>
-            </LoadFade>
-
-            <LoadFade>
-              <div className="Flex-Items">
-                <div className="Space">
+            <section id="AboutBlockThree">
+              <TitleText title="NOT JUST A DEVELOPER" fcol="RedOrange"/>
+              <LoadFade>
+                <div className="Flex-Items">
+                  <OffDuty/>
                 </div>
-
-                  <AboutParagraph/>
-
-                <div className="Space">
-                </div>
-              </div>
-            </LoadFade>
-
+              </LoadFade>
+            </section>
         </StaggerRemaining>
       </div>
     )

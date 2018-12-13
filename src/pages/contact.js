@@ -22,11 +22,11 @@ const Services = ({icon, title, service}) => (
 const Header = () => (
   <section>
     <LoadFade>
-      <h2 className="Title">LETS TALK</h2>
+      <h2 className="Title">LETS TALK BUSINESS,<br/>SHALL WE?</h2>
     </LoadFade>
 
     <LoadFade>
-      <div className="Title-Stripe RedB">
+      <div className="Title-Stripe RedOrangeB">
       </div>
     </LoadFade>
   </section>
@@ -45,9 +45,10 @@ export class Contact extends Component{
         <StaggerChildren pose={loadHome ? 'open' : 'closed'}>
           <Header/>
           <LoadFade>
-            <p className="Large-Font Title-Letter-Spacing">
+            <p className="Large-Font Title-Letter-Spacing Red">
               <strong>SERVICES AVAILABLE</strong>
             </p>
+            <br/>
           </LoadFade>
           <StaggerRemaining>
           <div className="Flex-Items">
@@ -61,9 +62,48 @@ export class Contact extends Component{
             <Services icon="list_alt" title="BUSINESS STRATEGY"/>
           </div>
 
+
           <LoadFade>
-            <h3 className="Large-Font Title-Letter-Spacing">
+            <p className="Large-Font Title-Letter-Spacing Red">
+              <strong>CONTACT ME</strong>
+            </p>
+            <br/>
+          </LoadFade>
+          <LoadFade>
+            <form>
+              <p className="Medium-Font Center-Text">
+                YOUR NAME
+              </p>
+              <input className="Input-Text" type="text" name="Name" placeholder="EX: Johnson Smithson"/>
+              <br/>
+
+              <p className="Medium-Font Center-Text">
+                YOUR EMAIL
+              </p>
+              <input className="Input-Text" type="email" name="Email" placeholder="EX: your@email.here"/>
+              <br/>
+
+              <p className="Medium-Font Center-Text">
+                MESSAGE
+              </p>
+              <textarea className="Input-Text" name="message" placeholder="EX: I need a website, iOS, and Android application!"></textarea>
+              <br/>
+              <div className="Flex-Items">
+                <input type="submit" className="Submit-Button White" value="SUBMIT"/>
+              </div>
+            </form>
+          </LoadFade>
+
+
+          <LoadFade>
+            <h3 className="Large-Font Title-Letter-Spacing Red">
+              NEED CONVINCING?<br/>
               HERES MY HOMEWORK
+            </h3>
+          </LoadFade>
+          <LoadFade>
+            <h3 className="Large-Font Center-Text">
+              COMMON CODE CHALLENGES
             </h3>
           </LoadFade>
           <LoadFade>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import posed from 'react-pose';
 import '../one-off.css';
-import { StaggerChildren  } from '../poses/poses.js';
+import { StaggerChildren, PulseSize } from '../poses/poses.js';
 
 const Title = posed.div({
   open:{
@@ -25,32 +25,17 @@ const InvisOnLoad = posed.div({
     opacity:1,
   },
 });
-const PulseSize = posed.div({
-  small:{
-    scale:0.99,
-    transition:{
-      duration:1000,
-    }
-  },
-  large:{
-    scale:1.01,
-    transition:{
-      duration:1000,
-    }
-  }
-})
+
 
 export class Home extends Component{
   state = { loadHome:false, isSmall:false };
   toggleLoadAnimations = () => (this.setState({ loadHome: true }));
   togglePulse = () => (
-    setInterval(() => {this.setState({ isSmall: !this.state.isSmall })}, 1000)
+    setInterval(() => {this.setState({ isSmall: !this.state.isSmall })}, 2000)
   )
   componentDidMount(){
-
       setTimeout(this.toggleLoadAnimations, 500);
       setTimeout(this.togglePulse, 1750);
-
   }
   render(){
     const { loadHome, isSmall } = this.state;

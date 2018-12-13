@@ -72,10 +72,10 @@ const NavOption = posed.li({
 });
 
 const MyLink = ({ title, to, onClick, routes }) => (
-  <div className="Link-Container RedB">
+  <div className="Link-Container RedB  White">
     <Link to={to}>
       <NavOption className="item" onClick={onClick}>
-         <span className="Nav-Font">{title}</span>
+         <span className="Nav-Font ">{title}</span>
       </NavOption>
     </Link>
   </div>
