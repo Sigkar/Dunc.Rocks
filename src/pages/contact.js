@@ -5,16 +5,18 @@ import MaterialIcon, {colorPalette} from 'material-icons-react';
 
 const Services = ({icon, title, service}) => (
   <LoadFade>
-    <div className="Black-Icon">
-      <div className="One-Third-Guttered">
-        <MaterialIcon icon={icon} size="80" />
-        <br/>
-        <p className="Center-Text Medium-Font">
-          {title}
-          <br/><br/>
-          {service}
-        </p>
-        <br/>
+    <div class="Icon-With-Text">
+      <div className="Black-Icon">
+        <div className="One-Third-Guttered">
+          <MaterialIcon icon={icon} size="80" />
+          <br/>
+          <p className="Center-Text Medium-Font">
+            {title}
+            <br/><br/>
+            {service}
+          </p>
+          <br/>
+        </div>
       </div>
     </div>
   </LoadFade>
@@ -32,10 +34,50 @@ const Header = () => (
   </section>
 )
 
+const Form = () => (
+  <section>
+    <LoadFade>
+      <p className="Large-Font Title-Letter-Spacing Red">
+        <strong>CONTACT ME</strong>
+      </p>
+      <br/>
+    </LoadFade>
+    <LoadFade>
+      <form>
+        <div className="Box-Shadow Seventy-Width Form-Container BlackB">
+          <br/><br/>
+          <p className="Medium-Font Center-Text White">
+            YOUR NAME
+          </p>
+          <input className="Input-Text" type="text" name="Name" placeholder="EX: Johnson Smithson"/>
+          <br/>
+
+          <p className="Medium-Font Center-Text  White">
+            YOUR EMAIL
+          </p>
+          <input className="Input-Text" type="email" name="Email" placeholder="EX: your@email.here"/>
+          <br/>
+
+          <p className="Medium-Font Center-Text  White">
+            MESSAGE
+          </p>
+          <textarea className="Input-Text" name="message" placeholder="EX: I need a website, iOS, and Android application!"></textarea>
+          <br/>
+          <div className="Flex-Items">
+            <input type="submit" className="Submit-Button White" value="SUBMIT"/>
+          </div>
+          <br/>
+        </div>
+      </form>
+    </LoadFade>
+  </section>
+)
+
 export class Contact extends Component{
   state = { loadHome:false };
   toggleLoadAnimations = () => (this.setState({ loadHome: true }));
   componentDidMount(){
+      window.scrollTo(0, 0);
       setTimeout(this.toggleLoadAnimations, 500);
   }
   render(){
@@ -44,6 +86,7 @@ export class Contact extends Component{
       <div id="Contact">
         <StaggerChildren pose={loadHome ? 'open' : 'closed'}>
           <Header/>
+          <Form/>
           <LoadFade>
             <p className="Large-Font Title-Letter-Spacing Red">
               <strong>SERVICES AVAILABLE</strong>
@@ -51,48 +94,19 @@ export class Contact extends Component{
             <br/>
           </LoadFade>
           <StaggerRemaining>
-          <div className="Flex-Items">
+          <div className="Flex-Break">
             <Services icon="computer" title="WEB DEVELOPMENT"/>
             <Services icon="device_hub" title="API DEVELOPMENT"/>
             <Services icon="phone_iphone" title="MOBILE APPLICATIONS"/>
           </div>
-          <div className="Flex-Items">
+          <div className="Flex-Break">
             <Services icon="security" title="WEB SECURITY"/>
             <Services icon="visibility" title="UI/UX DEVELOPMENT"/>
             <Services icon="list_alt" title="BUSINESS STRATEGY"/>
           </div>
 
 
-          <LoadFade>
-            <p className="Large-Font Title-Letter-Spacing Red">
-              <strong>CONTACT ME</strong>
-            </p>
-            <br/>
-          </LoadFade>
-          <LoadFade>
-            <form>
-              <p className="Medium-Font Center-Text">
-                YOUR NAME
-              </p>
-              <input className="Input-Text" type="text" name="Name" placeholder="EX: Johnson Smithson"/>
-              <br/>
 
-              <p className="Medium-Font Center-Text">
-                YOUR EMAIL
-              </p>
-              <input className="Input-Text" type="email" name="Email" placeholder="EX: your@email.here"/>
-              <br/>
-
-              <p className="Medium-Font Center-Text">
-                MESSAGE
-              </p>
-              <textarea className="Input-Text" name="message" placeholder="EX: I need a website, iOS, and Android application!"></textarea>
-              <br/>
-              <div className="Flex-Items">
-                <input type="submit" className="Submit-Button White" value="SUBMIT"/>
-              </div>
-            </form>
-          </LoadFade>
 
 
           <LoadFade>

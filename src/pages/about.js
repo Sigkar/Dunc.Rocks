@@ -120,6 +120,7 @@ export class About extends Component{
   state = { loadHome:false };
   toggleLoadAnimations = () => (this.setState({ loadHome: true }));
   componentDidMount(){
+      window.scrollTo(0, 0);
       setTimeout(this.toggleLoadAnimations, 500);
   }
   render(){
