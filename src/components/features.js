@@ -28,7 +28,7 @@ export class Featured extends Component{
           </div>
           <div className="Product-Text Medium-Font Center-Text">
             <a className="Orange" href={this.props.snippet} target="_blank" rel="noopener noreferrer">
-              <button className="Link-Button">HIGHLIGHTED CODE<br/>({this.props.writtenIn})</button>
+              <button className="Link-Button Box-Shadow">HIGHLIGHTED CODE<br/>({this.props.writtenIn})</button>
             </a>
           </div>
         </div>
