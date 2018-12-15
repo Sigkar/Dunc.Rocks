@@ -44,21 +44,21 @@ const Form = () => (
     </LoadFade>
     <LoadFade>
       <form>
-        <div className="Box-Shadow Seventy-Width Form-Container BlackB">
+        <div className="Seventy-Width Form-Container">
           <br/><br/>
-          <p className="Medium-Font Center-Text White">
+          <p className="Medium-Font Center-Text Black">
             YOUR NAME
           </p>
           <input className="Input-Text" type="text" name="Name" placeholder="EX: Johnson Smithson"/>
           <br/>
 
-          <p className="Medium-Font Center-Text  White">
+          <p className="Medium-Font Center-Text  Black">
             YOUR EMAIL
           </p>
           <input className="Input-Text" type="email" name="Email" placeholder="EX: your@email.here"/>
           <br/>
 
-          <p className="Medium-Font Center-Text  White">
+          <p className="Medium-Font Center-Text  Black">
             MESSAGE
           </p>
           <textarea className="Input-Text" name="message" placeholder="EX: I need a website, iOS, and Android application!"></textarea>
@@ -116,28 +116,9 @@ export class Contact extends Component{
             </h3>
           </LoadFade>
           <LoadFade>
-            <h3 className="Large-Font Center-Text">
-              COMMON CODE CHALLENGES
-            </h3>
-          </LoadFade>
-          <LoadFade>
-            <h3 className="Medium-Font Center-Text">
-              ROTTEN ORANGES
-            </h3>
-          </LoadFade>
-          <LoadFade>
-            <iframe className="frame Box-Shadow" scrolling='no' title='Rotten Oranges Code Challenge'
-             src='//codepen.io/sigkar/embed/Neqvpe/?height=265&theme-id=0&default-tab=js,result'
-              frameBorder='no' allowtransparency='true'>See the Pen
-               <a href='https://codepen.io/sigkar/pen/Neqvpe/'>
-               Rotten Oranges Code Challenge</a> by Duncan Pierce (
-                 <a href='https://codepen.io/sigkar'>@sigkar</a>)
-                 on <a href='https://codepen.io'>CodePen</a>.
-            </iframe>
-          </LoadFade>
-          <LoadFade>
-            <h3 className="Medium-Font Center-Text">
-              FIZZ BUZZ
+            <h3 className="Medium-Font Paragraph-Control Any-Letter-Spacing Center-Text">
+              DID YOU KNOW<br/><a href="https://blog.codinghorror.com/why-cant-programmers-program/" className="Orange" target="_blank" rel="noopener noreferrer">90% OF APPLICANTS</a> CANT WRITE FIZZ BUZZ?
+              <br/><br/>
             </h3>
           </LoadFade>
           <LoadFade>

@@ -21,6 +21,14 @@
   -moz-box-shadow: 3px 2px 5px 0px rgba(133,133,133,0.5);
   box-shadow: 3px 2px 5px 0px rgba(133,133,133,0.5);
 }
+.Box-Shadow-Hover{
+  transition:box-shadow 0.2s, -webkit-box-shadow 0.2s, -o-box-shadow 0.2s;
+}
+.Box-Shadow-Hover:hover{
+  -webkit-box-shadow: 0px 3px 5px 3px rgba(133,133,133,0.5);
+  -moz-box-shadow: 0px 3px 5px 3px rgba(133,133,133,0.5);
+  box-shadow: 0px 3px 5px 3px rgba(133,133,133,0.5);
+}
 .Line-Center{
   vertical-align:middle !important;
   line-height:36px !important;
@@ -31,6 +39,12 @@
   width:80%;
   position:relative;
   left:5%;
+}
+@media screen and (max-width:800px){
+  .Title{
+    font-size:28px;
+    max-width:calc(100vw - 40px);
+  }
 }
 .Title-Letter-Spacing{
   width:80%;
@@ -95,6 +109,25 @@
   font-size:10px;
   line-height:12px;
 }
+@media screen and (max-width:800px){
+  .Large-Font{
+    font-size:24px;
+    line-height:28px;
+  }
+  .Medium-Font{
+    font-size:20px;
+    line-height:22px;
+  }
+  .Small-Font{
+    font-size:12px;
+    line-height:14px;
+  }
+  .Very-Small-Font{
+    font-size:8px;
+    line-height:10px;
+  }
+}
+
 
 .White{
   color:#f2f4ed;
@@ -394,14 +427,21 @@ code {
 .Input-Text{
   resize:none;
   outline:none;
-  width:90%;
+  width:calc(90% - 16px);
+  padding-left:8px;
+  padding-right:8px;
   margin:0px 5%;
   border:none;
-  background:#f2f4ed;
+  border-bottom:4px solid #30323d;
+  background:#ffffff;
   height:26px;
   font-size:22px;
   line-height:26px;
   justify-content:center;
+  transition:border-bottom 0.2s;
+}
+.Input-Text:hover, .Input-Text:focus{
+  border-bottom:4px solid #000000;
 }
 textarea{
   height:52px !important;
@@ -424,4 +464,10 @@ textarea{
 }
 .Submit-Button:hover{
   background:#fe5f55;
+}
+
+
+.Paragraph-Control{
+  max-width:80vw;
+  margin:0 auto;
 }

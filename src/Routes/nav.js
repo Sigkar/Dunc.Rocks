@@ -75,7 +75,7 @@ const MyLink = ({ title, to, onClick, routes }) => (
   <div className="Link-Container RedB  White">
     <Link to={to}>
       <NavOption className="item" onClick={onClick}>
-         <span className="Nav-Font ">{title}</span>
+         <span className="Nav-Font Any-Letter-Spacing">{title}</span>
       </NavOption>
     </Link>
   </div>
@@ -120,7 +120,6 @@ export class App extends Component {
                 <MyLink title="ABOUT" to="/about" onClick={this.toggle}/>
                 <MyLink title="CONTACT" to="/contact" onClick={this.toggle}/>
                 <MyLink title="MY WORK" to="/mywork" onClick={this.toggle}/>
-                <MyLink title="FAVORITES" to="/mywork" onClick={this.toggle}/>
               </Sidebar>
 
             </div>
