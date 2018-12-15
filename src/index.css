@@ -151,19 +151,25 @@
 }
 
 .WhiteB{
-  background:#f2f4ed;
+  background:#f2f4ed !important;
 }
 .BlackB{
-  background:#30323d;
+  background:#30323d !important;
 }
 .RedB{
-  background:#ff3223;
+  background:#ff3223 !important;
 }
 .OrangeB{
-  background:#e87f47;
+  background:#e87f47 !important;
 }
 .RedOrangeB{
-  background:#fe5f55;
+  background:#fe5f55 !important;
+}
+.Hover-Red{
+  transition: background 0.2s;
+}
+.Hover-Red:hover{
+  background:#ff3223 !important;
 }
 body {
   margin: 0;
@@ -528,4 +534,8 @@ textarea{
 .Break-Padding{
   width:100vw;
   height:75px;
+}
+.Center-Flex{
+  display:flex;
+  justify-content:center;
 }

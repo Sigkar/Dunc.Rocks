@@ -10,7 +10,7 @@ import Groupietech from "../images/groupietech-scale.jpg";
 const Header = () => (
   <section>
     <LoadFade>
-      <h2 className="Title">MY WORK</h2>
+      <h2 className="Title">CONTRACTOR AND<br/>FREELANCE WORK</h2>
     </LoadFade>
     <ZeroToFullWidth>
       <div className="Title-Stripe OrangeB">
@@ -35,21 +35,31 @@ export class Work extends Component{
 
           <LoadFade>
             <h2 className="Title RedOrange">
-              INDUSTRY STANDARD
+              AN INDUSTRY STANDARD
             </h2>
           </LoadFade>
           <StaggerRemaining>
           <LoadFade>
-            <p className="Medium-Font Center-Text">
+            <div className="Flex-Items">
+            <p className="Medium-Font Paragraph-Width">
               As with any great developer, I have a GitHub with codebases, including this very site!
-              <br/>
+              <br/><br/>
+              Along with GitHub, I have a few things on CodePen which will available soon.
+              <br/><br/>
               Don't see something you need on there? I learn quickly, or definitely know someone who does.
               <br/><br/>
-              <a href="https://github.com/sigkar" target="_blank" rel="noopener noreferrer">
-                <button className="Link-Button">MY GITHUB</button>
-              </a>
+              <div className="Flex-Items">
+                <a href="https://github.com/sigkar" target="_blank" rel="noopener noreferrer">
+                  <button className="Link-Button BlackB Hover-Red">GITHUB</button>
+                </a>
+                <br/>
+                <a href="https://codepen.io/sigkar/" target="_blank" rel="noopener noreferrer">
+                  <button className="Link-Button RedOrangeB Hover-Red">CODEPEN</button>
+                </a>
+              </div>
               <div className="Break-Padding"></div>
             </p>
+            </div>
           </LoadFade>
 
           <LoadFade>

@@ -18,7 +18,7 @@ export class Featured extends Component{
           <p className="Center-Text Medium-Font Orange">
             {this.props.role}
           </p>
-          <div className="Product-Text Medium-Font">
+          <div className="Product-Text Medium-Font Paragraph-Width">
             <p>{this.props.description}</p>
           </div>
           <div class="Flex-Products Medium-Font">
