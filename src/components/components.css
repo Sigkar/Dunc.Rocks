@@ -24,6 +24,14 @@
   width:calc(100% / 3);
   text-align:center;
 }
+.Product{
+  padding-top:50px;
+  padding-bottom:50px;
+  -webkit-box-shadow: 3px 2px 5px 0px rgba(133,133,133,0.5);
+  -moz-box-shadow: 3px 2px 5px 0px rgba(133,133,133,0.5);
+  box-shadow: 3px 2px 5px 0px rgba(133,133,133,0.5);
+}
+
 @media screen and (max-width:600px){
   .Flex-Products{
     display:block;

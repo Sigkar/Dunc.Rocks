@@ -1,26 +1,8 @@
 import React, { Component } from 'react';
 import posed from 'react-pose';
 import { StaggerRemaining, StaggerChildren, LoadFade, ZeroToFullWidth} from '../poses/poses.js';
-import MaterialIcon, {colorPalette} from 'material-icons-react';
+import { Services } from "../components/services.js";
 
-const Services = ({icon, title, service}) => (
-  <LoadFade>
-    <div class="Icon-With-Text">
-      <div className="Black-Icon">
-        <div className="One-Third-Guttered">
-          <MaterialIcon icon={icon} size="80" />
-          <br/>
-          <p className="Center-Text Medium-Font">
-            {title}
-            <br/><br/>
-            {service}
-          </p>
-          <br/>
-        </div>
-      </div>
-    </div>
-  </LoadFade>
-);
 const Header = () => (
   <section>
     <LoadFade>
@@ -111,8 +93,7 @@ export class Contact extends Component{
 
           <LoadFade>
             <h3 className="Large-Font Title-Letter-Spacing Red">
-              NEED CONVINCING?<br/>
-              HERES MY HOMEWORK
+              FUN FACT:
             </h3>
           </LoadFade>
           <LoadFade>

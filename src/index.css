@@ -430,15 +430,23 @@ code {
   width:calc(90% - 16px);
   padding-left:8px;
   padding-right:8px;
+
   margin:0px 5%;
+
   border:none;
   border-bottom:4px solid #30323d;
+
   background:#ffffff;
+
   height:26px;
+
   font-size:22px;
   line-height:26px;
+
   justify-content:center;
   transition:border-bottom 0.2s;
+
+  -webkit-appearance: none;
 }
 .Input-Text:hover, .Input-Text:focus{
   border-bottom:4px solid #000000;
@@ -461,6 +469,7 @@ textarea{
   -moz-transition:background 0.2s;
   -webkit-transition:background 0.2s;
   -o-transition:background 0.2s;
+  -webkit-appearance: none;
 }
 .Submit-Button:hover{
   background:#fe5f55;
@@ -470,4 +479,53 @@ textarea{
 .Paragraph-Control{
   max-width:80vw;
   margin:0 auto;
+}
+/* 404 */
+
+.Center-Screen{
+  height:100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width:800px){
+  .Center-Screen{
+    display:block;
+    clear:both;
+    width:90vw;
+    padding-left:5vw;
+    padding-right:5vw;
+  }
+}
+
+
+.Link-Button{
+  outline:none;
+  border:none;
+  padding:8px 16px 8px 16px;
+  border-radius:none;
+  -webkit-appearance:none;
+  background:#ff3223;
+
+  transition:background 0.2s;
+  -ms-transition:background 0.2s;
+  -moz-transition:background 0.2s;
+  -webkit-transition:background 0.2s;
+  -o-transition:background 0.2s;
+
+  color:#f2f4ed;
+  font-size:20px;
+
+  font-weight:700;
+
+  cursor:pointer;
+  border-radius:5px;
+}
+.Link-Button:hover{
+  background:#fe5f55;
+}
+
+.Break-Padding{
+  width:100vw;
+  height:75px;
 }
