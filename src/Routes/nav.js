@@ -74,7 +74,7 @@ const NavOption = posed.li({
 });
 
 const MyLink = ({ title, to, onClick, routes }) => (
-  <div className="Link-Container RedB  White">
+  <div className="Link-Container RedB No-Select White">
     <Link to={to}>
       <NavOption className="item" onClick={onClick}>
          <span className="Nav-Font Any-Letter-Spacing">{title}</span>
@@ -106,7 +106,7 @@ export class App extends Component {
         <div>
           <Router>
             <div id="Nav-Contain-ID">
-              <div className="Main-Page-Container">
+              <div className="Main-Page-Container No-Select">
                 <Route path="/" exact component={IndexPage}  />
                 <Route path="/home" component={IndexPage}  />
                 <Route path="/about/" component={AboutPage} />

@@ -40,8 +40,8 @@ const AboutParagraph = () => (
       with a bachelors degree in business administration.
       <br/><br/>
       Why a business degree? Because I believe that understanding the product
-      comes first. Business is a knowledge and skill - Code is very heavily
-      based upon talent, in some philosophies anyway.
+      comes first. Business is a knowledge, and a skill. Code is very heavily
+      based upon talent, (in some philosophies anyway).
 
     </p>
   </section>
@@ -55,9 +55,9 @@ const MissionStatement = () => (
       Developing a professional and sleek UI, with a great UX, is one of the largest selling
       points of any application to a user.
       <br/><br/>
-      My dream is to create a great digital experience for both the
-      client and the developer, and the only way to achieve this goal
-      was for me to become fluent in both Front and Back End development.
+      My dream is to create a great digital experience for the client,
+      and the only way to achieve this goal
+      is for me to become fluent in both Front and Back End development.
 
     </p>
   </section>

@@ -31,9 +31,11 @@ const GitAndCodePen = () => (
       <p className="Medium-Font Paragraph-Width">
         As with any great developer, I have a GitHub with codebases, including this very site!
         <br/><br/>
-        Along with GitHub, I have a few things on CodePen which will available soon.
+        Along with my personal GitHub, I have a few things posted on CodePen.
         <br/><br/>
-        Don't see something you need on there? I learn quickly, or definitely know someone who does.
+        If you don't see what you need on my profile, ask anyway!
+        I am open to learning new technologies,
+        and I have several connections I can at least forward you to.
         <br/><br/>
         <div className="Flex-Items">
           <a href="https://github.com/sigkar" target="_blank" rel="noopener noreferrer">
