@@ -65,3 +65,17 @@ export const PulseSize = posed.div({
     }
   }
 })
+export const ChangingLeftRight = posed.div({
+  small:{
+    x:'0%',
+    transition:{
+      duration:5000,
+    }
+  },
+  large:{
+    x:'5%',
+    transition:{
+      duration:5000,
+    }
+  }
+})

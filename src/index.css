@@ -148,6 +148,18 @@
   color:#30323d !important;
   display:flex !important;
   justify-content:center !important;
+  font-size:80px !important;
+}
+.Icon-Title{
+  font-size:22px;
+}
+@media screen and (max-width:550px){
+  .Black-Icon i{
+    font-size:40px !important;
+  }
+  .Icon-Title{
+    font-size:19px;
+  }
 }
 .Red{
   color:#ff3223;
@@ -404,26 +416,32 @@ code {
   height:auto;
   margin-bottom:2vh;
 }
-.One-Third-Guttered{
+
+.Icon-Guttered{
+  flex: 1 0 calc(100vw / 3);
   width:33vw;
 }
+
+.Flex-Two-Col-Media{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+@media screen and (max-width:550px){
+  .Icon-Guttered{
+    width:48vw;
+    margin:1vw;
+  }
+}
+
 
 .Flex-Break{
   display:flex;
   justify-content:space-around;
 }
-@media screen and (max-width:550px){
-  .Flex-Break{
-    display:block;
-  }
-  .Icon-With-Text{
-    display:flex;
-    justify-content:space-around;
-  }
-  .One-Third-Guttered{
-    width:100vw;
-  }
-}
+
 .Paragraph-Width{
   width:80vw;
 }
@@ -542,4 +560,14 @@ textarea{
 .Center-Flex{
   display:flex;
   justify-content:center;
+}
+
+.Underline-Text{
+  text-decoration:underline;
+}
+@media screen and (max-width:550px){
+  .Shrink-Text-Important{
+    font-size:15px !important;
+    letter-spacing:1px;
+  }
 }

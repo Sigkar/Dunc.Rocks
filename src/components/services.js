@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
-import { StaggerRemaining, StaggerChildren, LoadFade, ZeroToFullWidth} from '../poses/poses.js';
-import MaterialIcon, {colorPalette} from 'material-icons-react';
+import React from 'react';
+import { LoadFade } from '../poses/poses.js';
+import MaterialIcon from 'material-icons-react';
 export const Services = ({icon, title, service}) => (
   <LoadFade>
-    <div class="Icon-With-Text">
+    <div className="Icon-With-Text">
       <div className="Black-Icon">
-        <div className="One-Third-Guttered">
-          <MaterialIcon icon={icon} size="80" />
+        <div className="Icon-Guttered">
+          <MaterialIcon icon={icon} />
           <br/>
-          <p className="Center-Text Medium-Font">
+          <p className="Center-Text Icon-Title">
             {title}
-            <br/><br/>
-            {service}
           </p>
           <br/>
         </div>

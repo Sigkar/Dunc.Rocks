@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
 import posed from 'react-pose';
 
-import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import { Home } from "../pages/home.js";
 import { Contact } from "../pages/contact.js";
 import { Work } from "../pages/work.js";
 import { About } from "../pages/about.js";
-import { NotFound } from "../pages/404.js";
 
-import MaterialIcon, {colorPalette} from 'material-icons-react';
+import MaterialIcon from 'material-icons-react';
 
 
 const IndexPage = () => <Home />;
 const AboutPage = () => <About />;
 const ContactPage = () => <Contact />;
 const MyWorkPage = () => <Work />;
-const FourOhFour = () => <NotFound />
 
 
 const LeftOverlay = posed.div({

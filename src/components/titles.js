@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import { StaggerRemaining, StaggerChildren, LoadFade, ZeroToFullWidth} from '../poses/poses.js';
+import { LoadFade } from '../poses/poses.js';
 
 export const HalfTitle = ({title, bgcol, right}) => (
     <LoadFade>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import posed from 'react-pose';
 
 import { StaggerRemaining, StaggerChildren, LoadFade, ZeroToFullWidth} from '../poses/poses.js';
 import { Featured } from '../components/features.js';
@@ -56,8 +55,10 @@ const GitAndCodePen = () => (
 export class Work extends Component{
   state = { loadHome:false };
   toggleLoadAnimations = () => (this.setState({ loadHome: true }));
+
   componentDidMount(){
       setTimeout(this.toggleLoadAnimations, 500);
+
   }
 
   render(){

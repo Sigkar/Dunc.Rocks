@@ -2,24 +2,10 @@ import React, { Component } from 'react';
 
 import DuncanPic from '../images/DuncanCompress.jpg';
 
-import posed from 'react-pose';
-
-import MaterialIcon, {colorPalette} from 'material-icons-react';
-
 import { StaggerRemaining, StaggerChildren, LoadFade, ZeroToFullWidth, LoadScale} from '../poses/poses.js';
 
 import { TitleText } from "../components/titles.js";
 
-// JSX
-const Item = ({content, pluginOne, example, linkTitle}) => (
-  <div className="Lang">
-    <p className="Large-Font Center-Text"><strong>{content}</strong></p>
-    <br/>
-    <p className="Large-Font Center-Text">{pluginOne}</p>
-    <br/>
-    <p className="Large-Font Center-Text"><a className="RedOrange" target="_blank" rel="noopener noreferrer" href={example}>{linkTitle}</a></p>
-  </div>
-);
 
 //Just filling in content
 const AboutParagraph = () => (

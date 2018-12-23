@@ -21,7 +21,7 @@ export class Featured extends Component{
           <div className="Product-Text Medium-Font Paragraph-Width">
             <p>{this.props.description}</p>
           </div>
-          <div class="Flex-Products Medium-Font">
+          <div className="Flex-Products Medium-Font">
             <h5 className="Product-Third">{this.props.writtenIn}</h5>
             <h5 className="Product-Third">{this.props.server}</h5>
             <h5 className="Product-Third">{this.props.codebase}</h5>

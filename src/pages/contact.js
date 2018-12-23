@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import posed from 'react-pose';
-import { StaggerRemaining, StaggerChildren, LoadFade, ZeroToFullWidth} from '../poses/poses.js';
+
+import { StaggerRemaining, StaggerChildren, LoadFade, ChangingLeftRight} from '../poses/poses.js';
 import { Services } from "../components/services.js";
 
 const Header = () => (
@@ -16,59 +16,34 @@ const Header = () => (
   </section>
 )
 
-const Form = () => (
-  <section>
-    <LoadFade>
-      <p className="Large-Font Title-Letter-Spacing Red">
-        <strong>CONTACT ME</strong>
-      </p>
-      <br/>
-    </LoadFade>
-    <LoadFade>
-      <form>
-        <div className="Seventy-Width Form-Container">
-          <br/><br/>
-          <p className="Medium-Font Center-Text Black">
-            YOUR NAME
-          </p>
-          <input className="Input-Text" type="text" name="Name" placeholder="EX: Johnson Smithson"/>
-          <br/>
-
-          <p className="Medium-Font Center-Text  Black">
-            YOUR EMAIL
-          </p>
-          <input className="Input-Text" type="email" name="Email" placeholder="EX: your@email.here"/>
-          <br/>
-
-          <p className="Medium-Font Center-Text  Black">
-            MESSAGE
-          </p>
-          <textarea className="Input-Text" name="message" placeholder="EX: I need a website, iOS, and Android application!"></textarea>
-          <br/>
-          <div className="Flex-Items">
-            <input type="submit" className="Submit-Button White" value="SUBMIT"/>
-          </div>
-          <br/>
-        </div>
-      </form>
-    </LoadFade>
-  </section>
-)
 
 export class Contact extends Component{
-  state = { loadHome:false };
+  state = { loadHome:false, isSmall:false };
+
+  togglePulse = () => (
+    setInterval(() => {this.setState({ isSmall: !this.state.isSmall })}, 3000)
+  )
   toggleLoadAnimations = () => (this.setState({ loadHome: true }));
   componentDidMount(){
       window.scrollTo(0, 0);
       setTimeout(this.toggleLoadAnimations, 500);
+      setTimeout(this.togglePulse, 850);
   }
   render(){
-    const { loadHome } = this.state;
+    const { loadHome, isSmall } = this.state;
     return(
       <div id="Contact">
         <StaggerChildren pose={loadHome ? 'open' : 'closed'}>
           <Header/>
-          <Form/>
+          <LoadFade>
+            <h3 className="Large-Font Title-Letter-Spacing Red">
+              CONTACT ME
+            </h3>
+            <h3 className="Medium-Font Title-Letter-Spacing Orange">
+              EMAIL: <span className="Black Shrink-Text-Important">DEVDUNCANROCKS@GMAIL.COM</span><br/><br/>
+              NETWORK:&nbsp;<a href="https://www.linkedin.com/in/duncan-pierce-079093126" target="_blank" rel="noopener noreferrer" className="Black">LINKEDIN</a><br/><br/>
+            </h3>
+          </LoadFade>
           <LoadFade>
             <p className="Large-Font Title-Letter-Spacing Red">
               <strong>SERVICES AVAILABLE</strong>
@@ -76,18 +51,45 @@ export class Contact extends Component{
             <br/>
           </LoadFade>
           <StaggerRemaining>
-          <div className="Flex-Break">
-            <Services icon="computer" title="WEB DEVELOPMENT"/>
+          <div className="Flex-Two-Col-Media">
+            <Services icon="computer" title="WEB DEV/DESIGN"/>
             <Services icon="device_hub" title="API DEVELOPMENT"/>
-            <Services icon="phone_iphone" title="MOBILE APPLICATIONS"/>
-          </div>
-          <div className="Flex-Break">
+            <Services icon="phone_iphone" title="HYBRID MOBILE APPS"/>
             <Services icon="security" title="WEB SECURITY"/>
             <Services icon="visibility" title="UI/UX DEVELOPMENT"/>
             <Services icon="list_alt" title="BUSINESS STRATEGY"/>
           </div>
 
+          <LoadFade>
+          <h3 className="Large-Font Title-Letter-Spacing Red">
+            WHY NO CONTACT FORM?
+          </h3>
+          <h3 className="Medium-Font Title-Letter-Spacing Orange">
+            OUTSIDE THE <span className="RedOrange">BOX</span>
+          </h3>
+          <p className="Medium-Font Paragraph-Control">
+            Email forms are dull. I have worked with NodeJS platforms such as MJML
+            and have built entire companies behind SendGrid, and I have come to the
+            conclusion that a generic business structure causes people to lose focus.<br/><br/>
+            This is your project you are contacting me for. You aren't just another possible
+            client to me - you are my next adventure in code.<br/><br/>
+            I am flexible by nature, and recieving an outside of the box, passionate, and personally
+            formatted email is something I love. This way, I get to know you, your product, and
+            your own goals
+          </p>
 
+          <h3 className="Medium-Font Title-Letter-Spacing Orange">
+            <ChangingLeftRight pose={isSmall ? 'small' : 'large'}>STATIC SITES</ChangingLeftRight>
+          </h3>
+          <p className="Medium-Font Paragraph-Control">
+            Two words. <span className="Red">JavaScript</span> and <span className="Red">Security</span><br/><br/>
+            This site uses purely ReactJS (Gatsby, React Pose, and Good Old-Fashioned DOM JavaScript)
+            hosted on Firebase - I wish to keep this site static.
+            To put API keys to SendGrid, SMTP Mailer info, or other secure information,
+            could be a serious security risk requiring me to upgrade to <span className="Red">ExpressJS</span> or another similar server structure.<br/><br/>
+            However, contact forms are not <a href="https://theclick.email" className="Orange" target="_blank" rel="noopener noreferrer">unfamiliar to me</a>
+          </p>
+          </LoadFade>
 
 
 
