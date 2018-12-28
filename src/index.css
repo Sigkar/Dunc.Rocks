@@ -449,39 +449,6 @@ code {
 
 
 /* Contact */
-.Form-Container{
-  margin:0 auto;
-}
-.Input-Text{
-  resize:none;
-  outline:none;
-  width:calc(90% - 16px);
-  padding-left:8px;
-  padding-right:8px;
-
-  margin:0px 5%;
-
-  border:none;
-  border-bottom:4px solid #30323d;
-
-  background:#ffffff;
-
-  height:26px;
-
-  font-size:22px;
-  line-height:26px;
-
-  justify-content:center;
-  transition:border-bottom 0.2s;
-
-  -webkit-appearance: none;
-}
-.Input-Text:hover, .Input-Text:focus{
-  border-bottom:4px solid #000000;
-}
-textarea{
-  height:52px !important;
-}
 .Submit-Button{
   margin:20px 0;
   font-size:24px;

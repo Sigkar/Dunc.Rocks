@@ -30,25 +30,28 @@ const Header = () => (
 )
 
 export class Contact extends Component{
+  state = { loadHome:false, isSmall:false };
+  togglePulse = () => (
+    setInterval(() => {this.setState({ isSmall: !this.state.isSmall })}, 3000)
+  )
+
   constructor(props) {
     super(props);
     this.state = {
+      hasAgreed: false,
       name: '',
       email: '',
       message: ''
     };
 
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handleMessageChange = this.handleMessageChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  state = { loadHome:false, isSmall:false };
-  togglePulse = () => (
-    setInterval(() => {this.setState({ isSmall: !this.state.isSmall })}, 3000)
-  )
+
   toggleLoadAnimations = () => (this.setState({ loadHome: true }));
+
   generateContactObject = () => (console.log(this.state.email));
+
   componentWillMount(){
     const config = {
       apiKey: "AIzaSyDP_thhJKydd9oGN-VwnUipSV6GJV8pzi0",
@@ -57,25 +60,40 @@ export class Contact extends Component{
     };
     firebase.initializeApp(config);
   }
+
   componentDidMount(){
       window.scrollTo(0, 0);
       setTimeout(this.toggleLoadAnimations, 500);
       setTimeout(this.togglePulse, 850);
   }
 
-  handleNameChange(event) {
-    this.setState({name: event.target.name});
-  }
-  handleEmailChange(event) {
-    this.setState({email: event.target.email});
-  }
-  handleMessageChange(event) {
-    this.setState({message: event.target.message});
-  }
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+    const email = target.email;
 
+    this.setState({
+      [name]: value
+    });
+  }
+  escapeRegExp(string){
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+  }
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
-    event.preventDefault();
+    var keyMap = [this.state.name, this.state.email, this.state.message];
+    for(var i = 0; i < keyMap.length; i++){
+      keyMap[i] = this.escapeRegExp(keyMap[i]);
+      console.log(keyMap[i]);
+    };
+
+    var object = {
+      name: keyMap[0],
+      email: keyMap[1],
+      hasagreed: this.state.hasAgreed,
+      message: keyMap[2]
+    }
+    firebase.database().ref("/submissions").push().set(object);
   }
 
   render(){
@@ -114,10 +132,53 @@ export class Contact extends Component{
               onKeyDown={(e) => {if (e.key === 'Enter') {e.preventDefault();}}}
               onSubmit={(e) => {e.preventDefault();e.stopPropagation();}}
             >
-              <input type="text" name="name" value={this.state.name} onChange={this.handleNameChange} />
-              <input type="email" name="email" value={this.state.email} onChange={this.handleEmailChange} />
-              <textarea name="message" value={this.state.message} onChange={this.handleMessageChange}>
-              </textarea>
+            <div className="Paragraph-Control">
+              <label>
+                <span className="Any-Letter-Spacing">NAME OR ORGANIZATION:</span><br/>
+                <input
+                  name="name"
+                  type="text"
+                  value={this.state.name}
+                  onChange={this.handleInputChange}
+                />
+              </label>
+              <br/><br/>
+              <label>
+                <span className="Any-Letter-Spacing">EMAIL:</span><br/>
+                <input
+                  name="email"
+                  type="email"
+                  value={this.state.email}
+                  onChange={this.handleInputChange}
+                />
+              </label>
+              <br/><br/>
+              <label>
+                <span className="Any-Letter-Spacing">YOUR MESSAGE:</span><br/>
+                <textarea name="message" value={this.state.message} onChange={this.handleInputChange}>
+                </textarea>
+              </label>
+              <br/><br/>
+              <label>
+                <span className="Any-Letter-Spacing">I AGREE TO THE TERMS BELOW</span><br/>
+                <ul>
+                  <li>
+                    Duncan Pierce (Developer, I, We) maintains the right to reject any project, task, or request, even after signing an NDA
+                  </li>
+                  <li>
+                    The Developer is required by law to report all illegal activity, including requests, even under the binding of an NDA
+                  </li>
+                  <li>
+                    I agree to not to misuse this input form to send unrelated emails, contact the Developer outside of the project, or for malicious intent.
+                  </li>
+                </ul>
+                <input name="hasAgreed" type="checkbox" checked={this.state.hasAgreed} onChange={this.handleInputChange} />
+              </label>
+              <br/><br/>
+                <button onClick={this.handleSubmit}>
+                SUBMIT
+                </button>
+              </div>
             </form>
           </LoadFade>
 
