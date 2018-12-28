@@ -8,7 +8,9 @@ ReactJS
 
 ## Game Plan
 - Work wonders
+- Get hired
+- Eat burritos
 
 ## Optional Features
-- Reconfigure to run through express
-  - Use NodeJS to send MJML emails to myself through sendgrid if I get negative feedback about having no contact form
+- Contact Form ((Added 12/27/2018)
+- Firebase Live Database Support (Added 12/27/2018)
