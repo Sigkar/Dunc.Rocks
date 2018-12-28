@@ -106,7 +106,6 @@ export class Contact extends Component{
     firebase.database().ref("/submissions").push().set(object);
     // Clear state
     this.setState({
-      inputErrorMessage: '',
       name: '',
       message: '',
       email: '',
@@ -141,7 +140,6 @@ export class Contact extends Component{
             >
 
             <div className="Paragraph-Control">
-              <p onChange={this.handleInputChange}>{this.state.inputErrorMessage}</p>
               <label>
                 <span className="Any-Letter-Spacing Medium-Font">NAME OR ORGANIZATION:</span><br/>
                 <input
@@ -150,8 +148,7 @@ export class Contact extends Component{
                   value={this.state.name}
                   onChange={this.handleInputChange}
                   className="Text-Input"
-                  required
-                />
+                  required/>
               </label>
               <br/><br/>
               <label>
@@ -173,16 +170,18 @@ export class Contact extends Component{
               </label>
               <br/><br/>
               <label>
-                <span className="Any-Letter-Spacing Medium-Font">I AGREE TO THE TERMS BELOW</span><br/>
+                <span className="Any-Letter-Spacing Medium-Font">CONTACT TERMS AGREEMENT</span><br/>
                 <ul>
                   <li>
-                    Duncan Pierce (Developer, I, We) maintains the right to reject any project, task, or request, even after signing an NDA
+                    Duncan Pierce (Developer) maintains the right to reject any project, task, or request, even after signing an NDA.
                   </li>
+                  <br/>
                   <li>
-                    The Developer is required by United States and International law to report all illegal activity, including requests, even under the binding of an NDA
+                    The Developer is required by United States and International law to report all illegal activity, including requests, even under the binding of an NDA.
                   </li>
+                  <br/>
                   <li>
-                    I agree to not to misuse this input form to send unrelated emails, contact the Developer outside of the project, or for malicious intent.
+                    I (The User) agree to not to misuse this input form to send unrelated emails, contact the Developer outside of the project, or for malicious intent.
                   </li>
                 </ul>
                 <div className="control-group Flex-Items">

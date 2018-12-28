@@ -501,7 +501,7 @@ code {
 
 .Text-Input{
   letter-spacing:2px;
-  width:95%;
+  width:Calc(95% - 2px);
   height:26px;
   font-size:22px;
 
@@ -513,7 +513,8 @@ code {
   -webkit-appearance: none;
 
   outline:none;
-  border:none;
+
+  border:1px solid #fe5f55 !important;
 
   resize:none;
 }
