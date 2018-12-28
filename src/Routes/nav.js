@@ -10,6 +10,9 @@ import { About } from "../pages/about.js";
 
 import MaterialIcon from 'material-icons-react';
 
+import firebase from "firebase/app";
+import "firebase/database";
+
 
 const IndexPage = () => <Home />;
 const AboutPage = () => <About />;
@@ -91,10 +94,15 @@ const FuncIcon = ({ size, funcOption, icon, classVal }) => (
 export class App extends Component {
   state = { isOpen: false};
 
-    componentDidMount() {
+  componentWillMount(){
+    const config = {
+      apiKey: "AIzaSyDP_thhJKydd9oGN-VwnUipSV6GJV8pzi0",
+      databaseURL: "https://duncanrocks.firebaseio.com/",
+      projectId: "duncanrocks"
+    };
+    firebase.initializeApp(config);
+  }
 
-
-    }
 
     toggle = () => (this.state.isOpen ? this.setState({ isOpen: false }) : this.setState({ isOpen: true }));
     render() {

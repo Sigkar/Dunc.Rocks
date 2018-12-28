@@ -52,29 +52,32 @@ const MissionStatement = () => (
 const OffDuty = () => (
   <section>
     <p className="Medium-Font Paragraph-Width">
-      <p className="Any-Letter-Spacing Center-Text Orange">
+      <span className="Any-Letter-Spacing Center-Text Orange">
         <strong>
           TECHNOLOGICAL
         </strong>
-      </p>
+      </span>
+      <br/><br/>
       I am mastery rank 22 on Warframe, I have just a few hours in The Witcher 3 and Fallout 4,
       and I am a total Old-School Runescape geek. Also, development is not just work -
       several hours each day, I look at the latest and greatest UI/UX ideas for both the web
       and mobile applications.
       <br/><br/>
-      <p className="Any-Letter-Spacing Center-Text Orange">
+      <span className="Any-Letter-Spacing Center-Text Orange">
         <strong>
           FITNESS
         </strong>
-      </p>
+      </span>
+      <br/><br/>
       I love to run, mountain bike, hike, and sing. I have been part of unofficial
       olympic weightlifting meets, and spent several years in college powerlifting.
       <br/><br/>
-      <p className="Any-Letter-Spacing Center-Text Orange">
+      <span className="Any-Letter-Spacing Center-Text Orange">
         <strong>
           AFFINITY FOR THE STRANGE
         </strong>
-      </p>
+      </span>
+      <br/><br/>
       Along with all of this, I have an affinity for old, vintage, and out of place
       things. I make vintage (synthetic) journals, as well as give vintage styles
       a modern touch.
@@ -143,7 +146,6 @@ export class About extends Component{
                 </div>
               </LoadFade>
             </section>
-
             <section id="AboutBlockThree">
               <TitleText title="NOT JUST A DEVELOPER" fcol="RedOrange"/>
               <LoadFade>

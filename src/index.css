@@ -16,6 +16,12 @@
   #fe5f55
 
 */
+hr{
+  width:90%;
+  border:2px solid #30323d;
+  margin-top:50px;
+  margin-bottom:25px;
+}
 .No-Select{
   -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -493,6 +499,50 @@ code {
   }
 }
 
+.Text-Input{
+  letter-spacing:2px;
+  width:95%;
+  height:26px;
+  font-size:22px;
+
+  padding: 2px 4px 2px 4px;
+
+  margin: 5px 2.5%;
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
+  outline:none;
+  border:none;
+
+  resize:none;
+}
+textarea{
+  height:52px !important;
+}
+.Button-Input{
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border:none;
+  outline:none;
+  padding:8px 15px 8px 15px;
+  font-size:22px;
+  cursor:pointer;
+
+  position:relative;
+  left:50%;
+  transform:translateX(-50%);
+
+  transition:background 0.3s;
+  -ms-transition:background 0.3s;
+  -moz-transition:background 0.3s;
+  -webkit-transition:background 0.3s;
+  -o-transition:background 0.3s;
+}
+
+.Button-Input:hover{
+  background-color:#fe5f55 !important;
+}
 
 .Link-Button{
   outline:none;

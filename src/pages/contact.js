@@ -2,19 +2,11 @@ import React, { Component } from 'react';
 
 import { StaggerRemaining, StaggerChildren, LoadFade, ZeroToFullWidth} from '../poses/poses.js';
 import { Services } from "../components/services.js";
+
 import firebase from "firebase/app";
 import "firebase/database";
-/*
-<form action="https://formspree.io/devduncanrocks@gmail.com" method="POST">
-  <input type="text" name="name"/>
-  <input type="email" name="email"/>
-  <textarea name="message"></textarea>
-  <input type="submit"/>
-</form>
-*/
-// function sendContactForm(object){
-//   firebase.database().ref("/submissions").push().set(object);
-// }
+
+import "../checkbox.css";
 
 const Header = () => (
   <section>
@@ -43,24 +35,21 @@ export class Contact extends Component{
       email: '',
       message: ''
     };
+    this.baseState = this.state;
+
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  componentWillUnmount() {
+    console.log("To do - unbind submissions");
+  }
 
   toggleLoadAnimations = () => (this.setState({ loadHome: true }));
 
-  generateContactObject = () => (console.log(this.state.email));
-
-  componentWillMount(){
-    const config = {
-      apiKey: "AIzaSyDP_thhJKydd9oGN-VwnUipSV6GJV8pzi0",
-      databaseURL: "https://duncanrocks.firebaseio.com/",
-      projectId: "duncanrocks"
-    };
-    firebase.initializeApp(config);
+  resetForm = () => {
+    this.setState(this.baseState)
   }
-
   componentDidMount(){
       window.scrollTo(0, 0);
       setTimeout(this.toggleLoadAnimations, 500);
@@ -71,33 +60,63 @@ export class Contact extends Component{
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
+    // eslint-disable-next-line
     const email = target.email;
 
     this.setState({
       [name]: value
     });
   }
+  validateEmail(email) {
+    // eslint-disable-next-line
+    var re = /^(?:[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
+    return re.test(email);
+  }
   escapeRegExp(string){
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
   }
   handleSubmit(event) {
+    event.preventDefault();
+    event.stopPropagation();
     var keyMap = [this.state.name, this.state.email, this.state.message];
+    // Validate
+    if (typeof keyMap[0] == 'undefined' || typeof keyMap[1] == 'undefined' || typeof keyMap[2] == 'undefined' ) {
+      return false;
+    }
+    if(!this.validateEmail(this.state.email)){
+      return false;
+    }
+    if(!this.state.hasAgreed){
+      return false;
+    }
+    if (keyMap[0] === '' || keyMap[1] === '' || keyMap[2] === '' || !keyMap[0] || !keyMap[1] || !keyMap[2] ) {
+      return false;
+    }
     for(var i = 0; i < keyMap.length; i++){
       keyMap[i] = this.escapeRegExp(keyMap[i]);
-      console.log(keyMap[i]);
     };
-
+    // Prep object to send to firebase
     var object = {
       name: keyMap[0],
       email: keyMap[1],
       hasagreed: this.state.hasAgreed,
-      message: keyMap[2]
+      message: keyMap[2],
+      time: firebase.database.ServerValue.TIMESTAMP
     }
     firebase.database().ref("/submissions").push().set(object);
+    // Clear state
+    this.setState({
+      inputErrorMessage: '',
+      name: '',
+      message: '',
+      email: '',
+      hasAgreed: false
+    });
+    this.handleInputChange(event);
   }
 
   render(){
-    const { loadHome, isSmall } = this.state;
+    const { loadHome } = this.state;
     return(
       <div id="Contact">
         <StaggerChildren pose={loadHome ? 'open' : 'closed'}>
@@ -112,6 +131,75 @@ export class Contact extends Component{
             </h3>
           </LoadFade>
           <LoadFade>
+          <hr/>
+          <h3 className="Large-Font Title-Letter-Spacing RedOrange">
+            DROP ME A NOTE
+          </h3>
+            <form
+              onKeyDown={(e) => {if (e.key === 'Enter') {e.preventDefault();}}}
+              onSubmit={this.handleSubmit.bind(this)}
+            >
+
+            <div className="Paragraph-Control">
+              <p onChange={this.handleInputChange}>{this.state.inputErrorMessage}</p>
+              <label>
+                <span className="Any-Letter-Spacing Medium-Font">NAME OR ORGANIZATION:</span><br/>
+                <input
+                  name="name"
+                  type="text"
+                  value={this.state.name}
+                  onChange={this.handleInputChange}
+                  className="Text-Input"
+                  required
+                />
+              </label>
+              <br/><br/>
+              <label>
+                <span className="Any-Letter-Spacing Medium-Font">EMAIL:</span><br/>
+                <input
+                  name="email"
+                  type="email"
+                  value={this.state.email}
+                  onChange={this.handleInputChange}
+                  className="Text-Input"
+                  required
+                />
+              </label>
+              <br/><br/>
+              <label>
+                <span className="Any-Letter-Spacing Medium-Font">YOUR MESSAGE:</span><br/>
+                <textarea className="Text-Input" name="message" value={this.state.message} onChange={this.handleInputChange} required>
+                </textarea>
+              </label>
+              <br/><br/>
+              <label>
+                <span className="Any-Letter-Spacing Medium-Font">I AGREE TO THE TERMS BELOW</span><br/>
+                <ul>
+                  <li>
+                    Duncan Pierce (Developer, I, We) maintains the right to reject any project, task, or request, even after signing an NDA
+                  </li>
+                  <li>
+                    The Developer is required by United States and International law to report all illegal activity, including requests, even under the binding of an NDA
+                  </li>
+                  <li>
+                    I agree to not to misuse this input form to send unrelated emails, contact the Developer outside of the project, or for malicious intent.
+                  </li>
+                </ul>
+                <div className="control-group Flex-Items">
+                  <div className="control control-checkbox">
+                    <input name="hasAgreed" type="checkbox" required checked={this.state.hasAgreed} onChange={this.handleInputChange}/>
+                    <div className="control_indicator"></div>
+                  </div>
+                </div>
+              </label>
+              <br/><br/><br/>
+                <input className="Button-Input RedB White" type="submit" value="SUBMIT"/>
+              </div>
+
+            </form>
+          </LoadFade>
+          <LoadFade>
+          <hr/>
             <p className="Large-Font Title-Letter-Spacing Red">
               <strong>SERVICES AVAILABLE</strong>
             </p>
@@ -126,63 +214,6 @@ export class Contact extends Component{
             <Services icon="visibility" title="UI/UX DEVELOPMENT"/>
             <Services icon="list_alt" title="BUSINESS STRATEGY"/>
           </div>
-
-          <LoadFade>
-            <form
-              onKeyDown={(e) => {if (e.key === 'Enter') {e.preventDefault();}}}
-              onSubmit={(e) => {e.preventDefault();e.stopPropagation();}}
-            >
-            <div className="Paragraph-Control">
-              <label>
-                <span className="Any-Letter-Spacing">NAME OR ORGANIZATION:</span><br/>
-                <input
-                  name="name"
-                  type="text"
-                  value={this.state.name}
-                  onChange={this.handleInputChange}
-                />
-              </label>
-              <br/><br/>
-              <label>
-                <span className="Any-Letter-Spacing">EMAIL:</span><br/>
-                <input
-                  name="email"
-                  type="email"
-                  value={this.state.email}
-                  onChange={this.handleInputChange}
-                />
-              </label>
-              <br/><br/>
-              <label>
-                <span className="Any-Letter-Spacing">YOUR MESSAGE:</span><br/>
-                <textarea name="message" value={this.state.message} onChange={this.handleInputChange}>
-                </textarea>
-              </label>
-              <br/><br/>
-              <label>
-                <span className="Any-Letter-Spacing">I AGREE TO THE TERMS BELOW</span><br/>
-                <ul>
-                  <li>
-                    Duncan Pierce (Developer, I, We) maintains the right to reject any project, task, or request, even after signing an NDA
-                  </li>
-                  <li>
-                    The Developer is required by law to report all illegal activity, including requests, even under the binding of an NDA
-                  </li>
-                  <li>
-                    I agree to not to misuse this input form to send unrelated emails, contact the Developer outside of the project, or for malicious intent.
-                  </li>
-                </ul>
-                <input name="hasAgreed" type="checkbox" checked={this.state.hasAgreed} onChange={this.handleInputChange} />
-              </label>
-              <br/><br/>
-                <button onClick={this.handleSubmit}>
-                SUBMIT
-                </button>
-              </div>
-            </form>
-          </LoadFade>
-
-
 
           <LoadFade>
             <h3 className="Large-Font Title-Letter-Spacing Red">
