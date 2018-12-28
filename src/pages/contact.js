@@ -1,7 +1,20 @@
 import React, { Component } from 'react';
 
-import { StaggerRemaining, StaggerChildren, LoadFade, ChangingLeftRight} from '../poses/poses.js';
+import { StaggerRemaining, StaggerChildren, LoadFade, ZeroToFullWidth} from '../poses/poses.js';
 import { Services } from "../components/services.js";
+import firebase from "firebase/app";
+import "firebase/database";
+/*
+<form action="https://formspree.io/devduncanrocks@gmail.com" method="POST">
+  <input type="text" name="name"/>
+  <input type="email" name="email"/>
+  <textarea name="message"></textarea>
+  <input type="submit"/>
+</form>
+*/
+// function sendContactForm(object){
+//   firebase.database().ref("/submissions").push().set(object);
+// }
 
 const Header = () => (
   <section>
@@ -9,26 +22,62 @@ const Header = () => (
       <h2 className="Title">LETS TALK BUSINESS,<br/>SHALL WE?</h2>
     </LoadFade>
 
-    <LoadFade>
+    <ZeroToFullWidth>
       <div className="Title-Stripe RedOrangeB">
       </div>
-    </LoadFade>
+    </ZeroToFullWidth>
   </section>
 )
 
-
 export class Contact extends Component{
-  state = { loadHome:false, isSmall:false };
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      email: '',
+      message: ''
+    };
 
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handleMessageChange = this.handleMessageChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  state = { loadHome:false, isSmall:false };
   togglePulse = () => (
     setInterval(() => {this.setState({ isSmall: !this.state.isSmall })}, 3000)
   )
   toggleLoadAnimations = () => (this.setState({ loadHome: true }));
+  generateContactObject = () => (console.log(this.state.email));
+  componentWillMount(){
+    const config = {
+      apiKey: "AIzaSyDP_thhJKydd9oGN-VwnUipSV6GJV8pzi0",
+      databaseURL: "https://duncanrocks.firebaseio.com/",
+      projectId: "duncanrocks"
+    };
+    firebase.initializeApp(config);
+  }
   componentDidMount(){
       window.scrollTo(0, 0);
       setTimeout(this.toggleLoadAnimations, 500);
       setTimeout(this.togglePulse, 850);
   }
+
+  handleNameChange(event) {
+    this.setState({name: event.target.name});
+  }
+  handleEmailChange(event) {
+    this.setState({email: event.target.email});
+  }
+  handleMessageChange(event) {
+    this.setState({message: event.target.message});
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
   render(){
     const { loadHome, isSmall } = this.state;
     return(
@@ -61,34 +110,15 @@ export class Contact extends Component{
           </div>
 
           <LoadFade>
-          <h3 className="Large-Font Title-Letter-Spacing Red">
-            WHY NO CONTACT FORM?
-          </h3>
-          <h3 className="Medium-Font Title-Letter-Spacing Orange">
-            OUTSIDE THE <span className="RedOrange">BOX</span>
-          </h3>
-          <p className="Medium-Font Paragraph-Control">
-            Email forms are dull. I have worked with NodeJS platforms such as MJML
-            and have built entire companies behind SendGrid, and I have come to the
-            conclusion that a generic business structure causes people to lose focus.<br/><br/>
-            This is your project you are contacting me for. You aren't just another possible
-            client to me - you are my next adventure in code.<br/><br/>
-            I am flexible by nature, and recieving an outside of the box, passionate, and personally
-            formatted email is something I love. This way, I get to know you, your product, and
-            your own goals
-          </p>
-
-          <h3 className="Medium-Font Title-Letter-Spacing Orange">
-            <ChangingLeftRight pose={isSmall ? 'small' : 'large'}>STATIC SITES</ChangingLeftRight>
-          </h3>
-          <p className="Medium-Font Paragraph-Control">
-            Two words. <span className="Red">JavaScript</span> and <span className="Red">Security</span><br/><br/>
-            This site uses purely ReactJS (Gatsby, React Pose, and Good Old-Fashioned DOM JavaScript)
-            hosted on Firebase - I wish to keep this site static.
-            To put API keys to SendGrid, SMTP Mailer info, or other secure information,
-            could be a serious security risk requiring me to upgrade to <span className="Red">ExpressJS</span> or another similar server structure.<br/><br/>
-            However, contact forms are not <a href="https://theclick.email" className="Orange" target="_blank" rel="noopener noreferrer">unfamiliar to me</a>
-          </p>
+            <form
+              onKeyDown={(e) => {if (e.key === 'Enter') {e.preventDefault();}}}
+              onSubmit={(e) => {e.preventDefault();e.stopPropagation();}}
+            >
+              <input type="text" name="name" value={this.state.name} onChange={this.handleNameChange} />
+              <input type="email" name="email" value={this.state.email} onChange={this.handleEmailChange} />
+              <textarea name="message" value={this.state.message} onChange={this.handleMessageChange}>
+              </textarea>
+            </form>
           </LoadFade>
 
 
