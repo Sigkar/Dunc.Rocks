@@ -435,6 +435,14 @@ code {
   overflow: hidden;
   flex-wrap: wrap;
 }
+.Flex-Two-Col-Media-SO{
+  justify-content:space-around;
+  display:flex;
+  align-items:center;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
 @media screen and (max-width:550px){
   .Icon-Guttered{
     width:48vw;
