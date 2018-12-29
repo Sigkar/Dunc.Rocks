@@ -11,8 +11,8 @@ import { TitleText } from "../components/titles.js";
 const AboutParagraph = () => (
   <section>
     <p className="Medium-Font Paragraph-Width">
-      My name is Duncan Pierce. I began developing at the young age
-      of 15 years old, writing C++.
+      My name is Duncan Pierce. I began developing at a young age
+      (15 years old) writing C++.
       At the age of 16, I found out what I wanted to do in life.
       This happened after writing my first responsive website,
       using the (now defunct for flex) Responsive Grid System.
@@ -58,9 +58,9 @@ const OffDuty = () => (
         </strong>
       </span>
       <br/><br/>
-      I am mastery rank 22 on Warframe, I have just a few hours in The Witcher 3 and Fallout 4,
-      and I am a total Old-School Runescape geek. Also, development is not just work -
-      several hours each day, I look at the latest and greatest UI/UX ideas for both the web
+      I am mastery rank 22 on Warframe, I have just a few (300+ each) hours in The Witcher 3 and Fallout 4,
+      and I am a total Old-School Runescape geek. Also, development is not just work for me.
+      Several hours each day, I look at the latest and greatest UI/UX ideas for both the web
       and mobile applications.
       <br/><br/>
       <span className="Any-Letter-Spacing Center-Text Orange">
@@ -90,16 +90,7 @@ const OffDuty = () => (
 const Header = () => (
   <section>
     <LoadFade>
-      <h2 className="Title">EVER SEEN A&nbsp;
-      <span className="RedOrange">U</span>
-      <span className="Orange">N</span>
-      <span className="Red">I</span>
-      <span className="RedOrange">C</span>
-      <span className="Orange">O</span>
-      <span className="Red">R</span>
-      <span className="RedOrange">N</span>
-      ?</h2>
-      <h2 className="Title">NOW YOU HAVE.</h2>
+      <h2 className="Title">JACK OF ALL TRADES</h2>
     </LoadFade>
 
       <ZeroToFullWidth className="Title-Stripe RedB"/>
@@ -159,14 +150,3 @@ export class About extends Component{
     )
   }
 }
-// <div className="Flex-Items">
-//   <LoadFade>
-//     <Item content="JavaScript" pluginOne="ReactJS" example="/home" linkTitle="This Website"/>
-//   </LoadFade>
-//   <LoadFade>
-//     <Item content="PHP" pluginOne="Laravel" example="https://theclick.email" linkTitle="The Click"/>
-//   </LoadFade>
-//   <LoadFade>
-//     <Item content="JavaScript" pluginOne="TailorMade" example="https://github.com/Sigkar/tailormade/blob/master/scripts/tailormade.js" linkTitle="Git Source"/>
-//   </LoadFade>
-// </div>
