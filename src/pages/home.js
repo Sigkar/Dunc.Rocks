@@ -42,7 +42,7 @@ export class Home extends Component{
 
     return(
       <StaggerChildren className="Main-Template" pose={loadHome ? 'open' : 'closed'}>
-        <div className="Main-Text-Spacer Main-Title-Text">
+        <div className="Main-Text-Spacer Main-Title-Text Home-Stripe-Override">
           <Title className="stripe OrangeB" pose={loadHome ? 'open' : 'closed'}>
             <InvisOnLoad className="HomeTitle">&nbsp;DESIGNER.</InvisOnLoad>
           </Title>

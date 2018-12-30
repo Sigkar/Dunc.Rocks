@@ -30,13 +30,11 @@ const GitAndCodePen = () => (
     <LoadFade>
       <div className="Flex-Items">
       <span className="Medium-Font Paragraph-Width">
-        As with any great developer, I have a GitHub with codebases, including this very site!
-        <br/><br/>
-        Along with my personal GitHub, I have a few things posted on CodePen.
+        Check out my Github and CodePen to see what I'm doing currently!
         <br/><br/>
         If you don't see what you need on my profile, ask anyway!
         I am open to learning new technologies,
-        and I have several connections I can at least forward you to.
+        and I have several connections I can forward you to.
         <br/><br/>
         <div className="Flex-Items">
           <a href="https://github.com/sigkar" target="_blank" rel="noopener noreferrer">
