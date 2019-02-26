@@ -44,17 +44,17 @@ export class Home extends Component{
       <StaggerChildren className="Main-Template" pose={loadHome ? 'open' : 'closed'}>
         <div className="Main-Text-Spacer Main-Title-Text Home-Stripe-Override">
           <Title className="stripe OrangeB" pose={loadHome ? 'open' : 'closed'}>
-            <InvisOnLoad className="HomeTitle">&nbsp;DESIGNER.</InvisOnLoad>
+            <InvisOnLoad className="HomeTitle">&nbsp;FRONTEND.</InvisOnLoad>
           </Title>
           <Title className="stripe RedB" pose={loadHome ? 'open' : 'closed'}>
-            <InvisOnLoad className="HomeTitle">&nbsp;DEVELOPER.</InvisOnLoad>
+            <InvisOnLoad className="HomeTitle">&nbsp;BACKEND.</InvisOnLoad>
           </Title>
           <Title className="stripe RedOrangeB" pose={loadHome ? 'open' : 'closed'}>
             <InvisOnLoad className="HomeTitle">&nbsp;GAMER.</InvisOnLoad>
           </Title>
           <Title className="stripe BlackB"  pose={loadHome ? 'open' : 'closed'}>
             <InvisOnLoad className="White HomeTitle">
-              &nbsp;WRITER.
+              &nbsp;RETROPHILIAC.
             </InvisOnLoad>
           </Title>
           <PulseSize className="Geeks-Rule-The-World" pose={isSmall ? 'small' : 'large'}>

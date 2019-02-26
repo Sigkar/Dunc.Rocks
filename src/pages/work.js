@@ -4,7 +4,7 @@ import { StaggerRemaining, StaggerChildren, LoadFade, ZeroToFullWidth} from '../
 import { Featured } from '../components/features.js';
 
 import TheClick from "../images/theClick.png";
-import Groupietech from "../images/groupietech-scale.jpg";
+import Headlinerr from "../images/headlinerr.png";
 import FrostStrider from "../images/FSLogo.jpg";
 import Placeholder from "../images/FF4D00-0.0.png";
 
@@ -72,9 +72,9 @@ export class Work extends Component{
             <h2 className="Title Orange">PREVIOUS WORK AND CURRENT PROJECTS</h2>
           </LoadFade>
           <div className="Products">
-            <div className="Flex-Two-Col-Media-SO">
               <Featured
                 logo={TheClick}
+                proj="THECLICK"
                 altText="The Click Logo"
                 link="https://theclick.email"
                 myRole="FULLSTACK DEV"
@@ -83,24 +83,27 @@ export class Work extends Component{
                 codeLink="https://github.com/Sigkar/Guzzle-Sendgrid-Layer/blob/master/SendEmail.php"
                 />
               <Featured
-                logo={Groupietech}
-                altText="GroupieTech Logo"
-                link="https://groupietech.com"
+                logo={Headlinerr}
+                proj="HEADLINERR"
+                altText="Headlinerr Logo"
+                link="https://headlinerr.com"
                 myRole="OWNER/OPERATOR"
                 cycle="IN DEVELOPMENT"
-                lang="FLUTTER/PHP"
-                codeLink="https://github.com/Sigkar/GroupieTech-Flutter/blob/master/lib/products/products.dart"
+                lang="REACTJS/FIREBASE"
+                codeLink="https://github.com/Sigkar/Headlinerr"
               />
               <Featured
                 logo={FrostStrider}
+                proj="FROSTSTRIDERS"
                 link="https://froststrider.com"
                 altText="GroupieTech Logo"
-                myRole="DEVELOPER"
+                myRole="DEVELOPER - MECHANICS"
                 cycle="IN DEVELOPMENT"
                 lang="UNITY3D"
               />
               <Featured
                 logo={Placeholder}
+                proj="UP NEXT"
                 altText="Coming Soon"
                 link="https://dunc.rocks/contact"
                 myRole="GET ON THIS WALL"
@@ -108,7 +111,6 @@ export class Work extends Component{
                 lang="&nbsp;"
               />
             </div>
-          </div>
           <GitAndCodePen/>
           </StaggerRemaining>
         </StaggerChildren>

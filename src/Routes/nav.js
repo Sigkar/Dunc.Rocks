@@ -129,8 +129,8 @@ export class App extends Component {
                 <MyLink title="CONTACT" to="/contact" onClick={this.toggle}/>
                 <MyLink title="MY WORK" to="/mywork" onClick={this.toggle}/>
               </Sidebar>
-
             </div>
+            
           </Router>
         </div>
       );

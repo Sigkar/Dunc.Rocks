@@ -6,6 +6,7 @@ export class Featured extends Component{
   render(){
     return(
       <LoadFade>
+        <h2 className="Medium-Font Center-Text Black">{this.props.proj}</h2>
         <div className="Product-Feature Box-Shadow-Hover">
           <div className="Product-Image">
             <a href={this.props.link} target="_blank" rel="noopener noreferrer">
@@ -13,6 +14,7 @@ export class Featured extends Component{
             </a>
           </div>
         </div>
+        
         <h2 className="Small-Font Center-Text Red">{this.props.myRole}</h2>
         <p className="Small-Font Center-Text">{this.props.cycle}</p>
         <p className="Small-Font Center-Text">

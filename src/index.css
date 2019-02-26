@@ -143,6 +143,12 @@ hr{
   }
 }
 
+.Change-BG{
+  background-color:#f2f4ed;
+}
+.Change-BG:nth-of-type(2 + n){
+  background-color:#e6e8e1;
+}
 
 .White{
   color:#f2f4ed;
