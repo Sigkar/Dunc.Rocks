@@ -7,7 +7,7 @@
     "@material-ui/icons": "^3.0.1",
     "@react-firebase/database": "^0.3.10",
     "firebase": "^5.7.1",
-    "firebase-tools": "^6.2.2",
+    "firebase-tools": "^6.4.0",
     "material-design-icons": "^3.0.1",
     "material-icons": "^0.2.3",
     "material-icons-react": "^1.0.4",
@@ -17,7 +17,7 @@
     "react-pose": "^4.0.3",
     "react-router-dom": "^4.3.1",
     "react-router5": "^6.5.3",
-    "react-scripts": "2.1.1",
+    "react-scripts": "^2.1.5",
     "router5": "^6.6.2"
   },
   "scripts": {
