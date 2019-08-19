@@ -6,6 +6,8 @@ import { Featured } from '../components/features.js';
 import TheClick from "../images/theClick.png";
 import Headlinerr from "../images/headlinerr.png";
 import FrostStrider from "../images/FSLogo.jpg";
+import Clickher from "../images/ClickherBlueTM.png";
+import Onyx from "../images/OnyxOutline.png";
 import Placeholder from "../images/FF4D00-0.0.png";
 
 const Header = () => (
@@ -77,29 +79,46 @@ export class Work extends Component{
                 proj="THECLICK"
                 altText="The Click Logo"
                 link="https://theclick.email"
-                myRole="FULLSTACK DEV"
+                myRole="FREELANCE DEVELOPER"
                 cycle="RELEASED"
-                lang="LARAVEL"
-                codeLink="https://github.com/Sigkar/Guzzle-Sendgrid-Layer/blob/master/SendEmail.php"
+                lang="PHP"
                 />
               <Featured
                 logo={Headlinerr}
                 proj="HEADLINERR"
                 altText="Headlinerr Logo"
                 link="https://headlinerr.com"
-                myRole="OWNER/OPERATOR"
+                myRole="OWNER"
                 cycle="IN DEVELOPMENT"
-                lang="REACTJS/FIREBASE"
-                codeLink="https://github.com/Sigkar/Headlinerr"
+                lang="TYPESCRIPT/DART(FLUTTER)"
+              />
+              <Featured
+                logo={Clickher}
+                proj="CLICKHER"
+                altText="ClickHer"
+                link="https://clickher.app"
+                myRole="FREELANCE DEVELOPER"
+                cycle="RELEASED"
+                lang="JAVASCRIPT(GATSBYJS)"
+              />
+              <Featured
+                logo={Onyx}
+                proj="ONYX"
+                altText="Onyx logo"
+                link="https://github.com/Sigkar/Onyx"
+                myRole="DEVELOPER"
+                cycle="OPEN SOURCE"
+                lang="JAVASCRIPT(BRAINJS)"
               />
               <Featured
                 logo={FrostStrider}
                 proj="FROSTSTRIDERS"
                 link="https://froststrider.com"
-                altText="GroupieTech Logo"
-                myRole="DEVELOPER - MECHANICS"
+                altText="Froststriders"
+                myRole="DEVELOPER/WRITER"
                 cycle="IN DEVELOPMENT"
-                lang="UNITY3D"
+                lang="AMETHYST.RS"
+                codeLink="https://amethyst.rs/"
               />
               <Featured
                 logo={Placeholder}

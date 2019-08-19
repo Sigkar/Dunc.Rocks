@@ -346,6 +346,10 @@ code {
   width:auto;
 }
 
+.nav-active{
+  font-weight:bold ;
+}
+
 /* Main Page */
 .Main-Template{
   width:320px;

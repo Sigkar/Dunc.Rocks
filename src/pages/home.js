@@ -26,9 +26,26 @@ const InvisOnLoad = posed.div({
   },
 });
 
+const descriptors = [
+  "DESIGNER",
+  "WRITER",
+  "CONSULTANT",
+  "TECHNOWIZZ",
+  "RETROPHILE",
+  "HIPSTER",
+  "ENGINEER",
+  "PROGRAMMER",
+  "BROTHER",
+  "PARTNER",
+]
 
 export class Home extends Component{
-  state = { loadHome:false, isSmall:false };
+  constructor(props){
+    super(props);
+    this.state = { loadHome:false, isSmall:false, descriptors: ["","","",""] };
+    this.getRandomText = this.getRandomText.bind(this);
+
+  }
   toggleLoadAnimations = () => (this.setState({ loadHome: true }));
   togglePulse = () => (
     setInterval(() => {this.setState({ isSmall: !this.state.isSmall })}, 2000)
@@ -36,7 +53,24 @@ export class Home extends Component{
   componentDidMount(){
       setTimeout(this.toggleLoadAnimations, 500);
       setTimeout(this.togglePulse, 1750);
+      this.getRandomText();
   }
+  getRandomText(){
+    let randomDescriptors = []
+    while(randomDescriptors.length < 3){
+        let randomInt = Math.floor(Math.random()*(descriptors.length));
+        if(randomDescriptors.indexOf(randomInt) === -1) randomDescriptors.push(randomInt);
+    }
+    this.setState({
+      descriptors: [
+        descriptors[randomDescriptors[0]],
+        descriptors[randomDescriptors[1]],
+        descriptors[randomDescriptors[2]],
+        descriptors[randomDescriptors[3]]
+      ]
+    });
+  }
+
   render(){
     const { loadHome, isSmall } = this.state;
 
@@ -44,17 +78,17 @@ export class Home extends Component{
       <StaggerChildren className="Main-Template" pose={loadHome ? 'open' : 'closed'}>
         <div className="Main-Text-Spacer Main-Title-Text Home-Stripe-Override">
           <Title className="stripe OrangeB" pose={loadHome ? 'open' : 'closed'}>
-            <InvisOnLoad className="HomeTitle">&nbsp;BUSINESS.</InvisOnLoad>
+            <InvisOnLoad className="HomeTitle">&nbsp;{this.state.descriptors[0]}.</InvisOnLoad>
           </Title>
           <Title className="stripe RedB" pose={loadHome ? 'open' : 'closed'}>
-            <InvisOnLoad className="HomeTitle">&nbsp;DESIGN.</InvisOnLoad>
+            <InvisOnLoad className="HomeTitle">&nbsp;{this.state.descriptors[1]}.</InvisOnLoad>
           </Title>
           <Title className="stripe RedOrangeB" pose={loadHome ? 'open' : 'closed'}>
-            <InvisOnLoad className="HomeTitle">&nbsp;DEVELOPMENT.</InvisOnLoad>
+            <InvisOnLoad className="HomeTitle">&nbsp;{this.state.descriptors[2]}.</InvisOnLoad>
           </Title>
           <Title className="stripe BlackB"  pose={loadHome ? 'open' : 'closed'}>
             <InvisOnLoad className="White HomeTitle">
-              &nbsp;CONSULTING.
+              &nbsp;DEVELOPER.
             </InvisOnLoad>
           </Title>
           <InvisOnLoad>

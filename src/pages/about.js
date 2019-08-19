@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import DuncanPic from '../images/DuncanCompress.jpg';
+import DuncanPic from '../images/Me.jpg';
 
 import { StaggerRemaining, StaggerChildren, LoadFade, ZeroToFullWidth, LoadScale} from '../poses/poses.js';
 
@@ -62,7 +62,7 @@ const OffDuty = () => (
       and I am a total Old-School Runescape geek. Also, development is not just work for me.
       Several hours each day, I look at the latest and greatest UI/UX ideas for both the web
       and mobile applications.
-      <br/><br/>
+      <br/><br/><br/><br/>
       <span className="Any-Letter-Spacing Center-Text Orange">
         <strong>
           FITNESS
@@ -71,19 +71,36 @@ const OffDuty = () => (
       <br/><br/>
       I love to run, mountain bike, hike, and sing. I have been part of unofficial
       olympic weightlifting meets, and spent several years in college powerlifting.
-      <br/><br/>
+      <br/><br/><br/><br/>
       <span className="Any-Letter-Spacing Center-Text Orange">
         <strong>
-          AFFINITY FOR THE STRANGE
+          LITTLE BIT OF A HIPSTER
         </strong>
       </span>
       <br/><br/>
-      Along with all of this, I have an affinity for old, vintage, and out of place
-      things. I make vintage (synthetic) journals, as well as give vintage styles
-      a modern touch.
+        Yeah yeah, I drink organic fair-trade coffee.
       <br/><br/>
-      Soon, I plan on releasing a novel of mine, <em>Frost-striders</em> to the
-      general public, a tale of Antarctic colonization in the mid 23rd century.
+        Along with all of this, I have an affinity for old, vintage, and out of place
+        things. I make vintage (synthetic) journals, as well as give vintage styles
+        a modern touch.
+      <br/><br/>
+        Soon, I plan on releasing a novel of mine, <em>Frost-striders</em> to the
+        general public, a tale of Antarctic colonization in the mid 23rd century.
+      <br/><br/><br/><br/>
+      <span className="Any-Letter-Spacing Center-Text Orange">
+        <strong>
+          HARDWARE ROOTS
+        </strong>
+      </span>
+      <br/><br/>
+        I'm also a fan of working on hardware. I know the basics of soldering, circuits,
+        and I am currently in the process of wiring up a Nixie Tube clock with an
+        elixir API remote configuration.
+      <br/><br/>
+        I also work on gaming PCs, and have slowly been becoming <em>Team Red</em>,
+        especially after the release of the RX 5700 XT and the new Ryzen series.
+        It's time for some competition!
+      <br/><br/>
     </p>
   </section>
 )
@@ -138,7 +155,7 @@ export class About extends Component{
               </LoadFade>
             </section>
             <section id="AboutBlockThree">
-              <TitleText title="NOT JUST A DEVELOPER" fcol="RedOrange"/>
+              <TitleText title="DO YOU DO ANYTHING ELSE?" fcol="RedOrange"/>
               <LoadFade>
                 <div className="Flex-Items">
                   <OffDuty/>
