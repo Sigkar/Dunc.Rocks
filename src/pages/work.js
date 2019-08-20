@@ -77,11 +77,11 @@ export class Work extends Component{
               <Featured
                 logo={TheClick}
                 proj="THECLICK"
-                altText="The Click Logo"
-                link="https://theclick.email"
+                altText="The Click's Email Service Logo"
+                link="https://janus.theclick.email"
                 myRole="FREELANCE DEVELOPER"
-                cycle="RELEASED"
-                lang="PHP"
+                cycle="RELEASED(SUPERSEDED)"
+                lang="PHP(LARAVEL)"
                 />
               <Featured
                 logo={Headlinerr}
