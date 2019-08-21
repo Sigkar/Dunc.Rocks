@@ -7,7 +7,7 @@ import { Home } from "../pages/home.js";
 import { Contact } from "../pages/contact.js";
 import { Work } from "../pages/work.js";
 import { About } from "../pages/about.js";
-
+import IntroText from "../components/intro";
 import MaterialIcon from 'material-icons-react';
 
 import firebase from "firebase/app";
@@ -49,6 +49,7 @@ export class App extends Component {
 
       return (
         <div>
+          <IntroText/>
           <Router>
             <div id="Nav-Contain-ID">
               <div className="Main-Page-Container">

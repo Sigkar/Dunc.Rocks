@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import posed from 'react-pose';
 import '../one-off.css';
 import { StaggerChildren, PulseSize } from '../poses/poses.js';
-
+import IntroText from "../components/intro";
 const Title = posed.div({
   open:{
     width: '100vw',
